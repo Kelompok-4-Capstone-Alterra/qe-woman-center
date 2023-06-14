@@ -10,6 +10,7 @@ public class GetTopicStep {
     @Steps
     GetTopic topic;
 
+    // View All Topics
     @Given("I set topic endpoint URL")
     public void setAdminProfileEndpoint() {
         topic.setTopicEndpoint();
@@ -23,6 +24,7 @@ public class GetTopicStep {
         topic.successViewAdminProfile();
     }
 
+    // View All Topics With Wrong Method
     @Given("I set topic endpoint")
     public void setAdminProfileEndp() {
         topic.setTopicEndpoint();
