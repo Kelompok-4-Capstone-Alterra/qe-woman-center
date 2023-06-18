@@ -1,5 +1,6 @@
 package starter.fitur.Admin;
 
+import com.google.gson.Gson;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
@@ -8,6 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class Login {
     protected static String url = "https://13.210.163.192:8080";
+    static String adminToken;
 
     private String username;
     private String password;
@@ -31,6 +33,13 @@ public class Login {
                 .body(body.toJSONString());
 
         response = request.post();
+
+        String data = request.when().post().then().extract().body().asString();
+        Gson gson = new Gson();
+        JSONObject jsonObject = gson.fromJson(data, JSONObject.class);
+        String authData = (jsonObject.get("data").toString());
+        JSONObject jsonAuth = gson.fromJson(authData, JSONObject.class);
+        adminToken = jsonAuth.get("token").toString();
     }
 
     public void sendPostWrongMethod(String username, String password) {
