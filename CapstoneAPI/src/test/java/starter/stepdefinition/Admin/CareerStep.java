@@ -1,5 +1,6 @@
 package starter.stepdefinition.Admin;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -78,5 +79,37 @@ public class CareerStep {
     @Then("I receive valid response")
     public void verifyResponse() {
         career.response();
+    }
+
+    // career search
+    @Given("I set search career based on {string} input endpoint")
+    public void iSetSearchCareerBasedOnInputEndpoint(String search) {
+        career.setSearchCareerEndpoint(search);
+    }
+    @When("I send search career {string} input request")
+    public void iSendSearchCareerRequest(String search) {
+        career.sendSearchCareerRequest(search);
+    }
+
+    @And("I receive status code {int}")
+    public void iReceiveStatusCode(int successCode) {
+        career.successResponse200(successCode);
+    }
+
+    // career delete
+    @Given("I set delete career endpoint with {string}")
+    public void iSetDeleteCareerEndpointWith(String uuid) {
+        career.setDeleteCareerEndpoint(uuid);
+    }
+
+    @When("I send DELETE admin career request")
+    public void iSendDELETEAdminCareerRequest() {
+        career.sendDeleteCareerRequest();
+    }
+
+    @Then("I receive career delete status code {string}")
+    public void iReceiveCareerDeleteStatusCode(String code) {
+        int statusCode = Integer.parseInt(code);
+        career.receiveResponseCode(statusCode);
     }
 }

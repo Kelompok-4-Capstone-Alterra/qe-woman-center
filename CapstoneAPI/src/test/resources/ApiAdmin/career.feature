@@ -1,4 +1,4 @@
-Feature: Admin Get All Career
+Feature: Admin Career
 
   Scenario: View All Career
     Given I set career endpoint URL
@@ -33,3 +33,25 @@ Feature: Admin Get All Career
       | company_email   | 123 Main St     |
       | image           | Users\User\Downloads\Capture.png |
     Then I receive valid response
+
+  @careerSearch
+  Scenario Outline: Admin search career based on search input
+    Given I set search career based on "<search>" input endpoint
+    When I send search career "<search>" input request
+    And I receive status code 200
+    Examples:
+      | search    |
+      | quality   |
+      | Alta      |
+      | Semarang  |
+      | abc       |
+
+    Scenario Outline: Admin delete career
+      Given I set delete career endpoint with "<uuid>"
+      When I send DELETE admin career request
+      Then I receive career delete status code "<code>"
+      Examples:
+        | uuid                                  | code  |
+        | 15313b93-0d96-11ee-8368-0242c0a81003  | 200   |
+        | 15313b93-0d96-11ee-8368-0242c0a81003  | 400   |
+        | 15313b93-0d96-11ee-8368-0242c0a8100   | 400   |

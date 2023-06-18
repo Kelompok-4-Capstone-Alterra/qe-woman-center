@@ -18,6 +18,7 @@ public class Career {
     protected static String invalidToken = "eyJh";
     private Response response;
     private Map<String, Object> data = new HashMap<>();
+    private String careerUUID;
 
     public String setCareerEndpoint() {
         return url + "/admin/careers";
@@ -84,5 +85,39 @@ public class Career {
             Assert.assertEquals(401, statusCode);
             System.out.println("Status code 401");
         }
+    }
+
+    // Career search
+    public String setSearchCareerEndpoint(String search) {
+        return url + "/admin/careers?search=" +search;
+    }
+
+    public void sendSearchCareerRequest(String search) {
+        SerenityRest.given().relaxedHTTPSValidation()
+                .header("Content-Type", "application/json")
+                .auth().oauth2(token)
+                .get(setSearchCareerEndpoint(search));
+    }
+
+    public void successResponse200(int successCode) {
+        restAssuredThat(response -> response.statusCode(successCode));
+    }
+
+    // Career delete
+    public String setDeleteCareerEndpoint(String uuid) {
+        careerUUID = uuid;
+        return url + "/admin/careers/" + careerUUID;
+    }
+
+    public void sendDeleteCareerRequest() {
+        System.out.println(Login.adminToken);
+        SerenityRest.given().relaxedHTTPSValidation()
+                .header("Content-Type", "application/json")
+                .auth().oauth2(Login.adminToken)
+                .delete(setDeleteCareerEndpoint(careerUUID));
+    }
+
+    public void receiveResponseCode(int statusCode) {
+        restAssuredThat(response -> response.statusCode(statusCode));
     }
 }
