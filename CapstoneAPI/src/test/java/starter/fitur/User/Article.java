@@ -8,6 +8,7 @@ public class Article {
     protected static String url = "https://13.210.163.192:8080";
     private String articleUUID;
 
+    // read article
     public String setUserGetArticleEndpoint(String uuid) {
         articleUUID = uuid;
         return url + "/users/articles/" + uuid;
