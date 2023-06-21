@@ -112,4 +112,61 @@ public class CareerStep {
         int statusCode = Integer.parseInt(code);
         career.receiveResponseCode(statusCode);
     }
+
+    // get career by id
+    @Given("I set GET career valid endpoint by ID")
+    public void setGetCareerValidEndpointByID(){career.setGetCareerValidEndpointByID();}
+    @When("I send HTTP GET career to request with valid endpoint")
+    public void sendIDReqCareerValidEndpoint(){career.sendIDReqCareerValidEndpoint();}
+    @Then("I receive a HTTP career response code 200 OK")
+    public void HttpCareerResponse200(){career.HttpCareerResponse200();}
+
+    // get career invalid id
+    @Given("I set GET career valid endpoint with invalid ID")
+    public void setGetCareerInvalidID(){career.setGetCareerInvalidID();}
+    @When("I send HTTP GET career to request with invalid ID")
+    public void sendReqInvalidID(){career.sendReqInvalidID();}
+    @Then("I receive a HTTP career response code 400 Not Found")
+    public void HttpCareerResponse400(){career.HttpCareerResponse400();}
+
+    // get career by id invalid token
+    @Given("I set GET career by ID invalid token")
+    public void setGetCareerInvalidToken(){career.setGetCareerInvalidToken();}
+    @When("I send HTTP GET career to request with invalid token")
+    public void sendGetReqInvalidToken(){career.sendGetReqInvalidToken();}
+    @Then("I receive a HTTP career response code 401 Invalid Token")
+    public void HttpCareerResponse401(){career.HttpCareerResponse401();}
+
+    // update career
+    @Given("I set PUT career valid endpoint")
+    public void setPutCareerValidEndpoint(){career.setPutCareerValidEndpoint();}
+    @When("I send HTTP PUT career to request with valid endpoint")
+    public void sendPutReqCareerValidEndpoint(){career.sendPutReqCareerValidEndpoint();}
+    @Then("I received HTTP career response code 200 OK")
+    public void HttpPutCareerResponse200(){career.HttpPutCareerResponse200();}
+
+    // update career invalid endpoint
+    @Given("I set PUT career invalid endpoint")
+    public void setPutCareerInvalidEndpoint(){career.setPutCareerInvalidEndpoint();}
+    @When("I send HTTP PUT career to request with invalid endpoint")
+    public void sendPutReqCareerInvalidEndpoint(){career.sendPutReqCareerInvalidEndpoint();}
+    @Then("I received HTTP career response code 404 Not Found")
+    public void HttpPutCareerResponse404(){career.HttpPutCareerResponse404();}
+
+    // update career invalid id
+    @Given("I set PUT career valid endpoint with invalid ID")
+    public void setPutCareerInvalidID(){career.setPutCareerInvalidID();}
+    @When("I send HTTP PUT career to request with invalid ID")
+    public void sendPutReqCareerInvalidID(){career.sendPutReqCareerInvalidID();}
+    @Then("I received HTTP career response code 400 Bad Request")
+    public void HttpPutCareerResponse400(){career.HttpPutCareerResponse400();}
+
+    // update career invalid token
+    @Given("I set PUT career valid endpoint with invalid token")
+    public void setPutCareerInvalidToken(){career.setPutCareerInvalidToken();}
+    @When("I send HTTP PUT career to request with invalid token")
+    public void sendPutReqCareerInvalidToken(){career.sendPutReqCareerInvalidToken();}
+    @Then("I received HTTP career response code 401 Invalid Token")
+    public void HttpPutCareerResponse401(){career.HttpPutCareerResponse401();}
+
 }

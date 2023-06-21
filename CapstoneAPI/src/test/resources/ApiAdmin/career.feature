@@ -55,3 +55,45 @@ Feature: Admin Career
         | 15313b93-0d96-11ee-8368-0242c0a81003  | 200   |
         | 15313b93-0d96-11ee-8368-0242c0a81003  | 400   |
         | 15313b93-0d96-11ee-8368-0242c0a8100   | 400   |
+
+  @GetCareerByID
+  Scenario: Get admin career by ID with valid endpoint
+    Given I set GET career valid endpoint by ID
+    When I send HTTP GET career to request with valid endpoint
+    Then I receive a HTTP career response code 200 OK
+
+  @GetCareerInvalidID
+  Scenario: Get admin career invalid ID with valid endpoint
+    Given I set GET career valid endpoint with invalid ID
+    When I send HTTP GET career to request with invalid ID
+    Then I receive a HTTP career response code 400 Not Found
+
+  @GetCareerByIDInvalidToken
+  Scenario: Get admin career by ID with invalid token
+    Given I set GET career by ID invalid token
+    When I send HTTP GET career to request with invalid token
+    Then I receive a HTTP career response code 401 Invalid Token
+
+  @UpdateCareer
+  Scenario: Update career information
+    Given I set PUT career valid endpoint
+    When I send HTTP PUT career to request with valid endpoint
+    Then I received HTTP career response code 200 OK
+
+  @UpdateCareerInvalidEndpoint
+  Scenario: Update career information with invalid endpoint
+    Given I set PUT career invalid endpoint
+    When I send HTTP PUT career to request with invalid endpoint
+    Then I received HTTP career response code 404 Not Found
+
+  @UpdateCareerInvalidID
+  Scenario: Update career information with invalid ID
+    Given I set PUT career valid endpoint with invalid ID
+    When I send HTTP PUT career to request with invalid ID
+    Then I received HTTP career response code 400 Bad Request
+
+  @UpdateCareerInvalidToken
+  Scenario: Update career information with invalid token
+    Given I set PUT career valid endpoint with invalid token
+    When I send HTTP PUT career to request with invalid token
+    Then I received HTTP career response code 401 Invalid Token

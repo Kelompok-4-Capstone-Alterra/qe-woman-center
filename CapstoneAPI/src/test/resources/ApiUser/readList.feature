@@ -71,3 +71,75 @@ Feature: Reading List
       |                                                    |                                        |
       |4d5d5a00-0dda-11ee-8b27-0242c0a86003                |                                        |
       |                                                    | 7083b3e8-0840-11ee-9db9-089798ecad5e   |
+
+  @GetReadingListByID
+  Scenario: Get reading list data by ID
+    Given I set GET reading list by ID with valid endpoint
+    When I send HTTP GET reading list request with valid endpoint
+    Then I receive a valid HTTP reading list response code 200 OK
+
+  @GetReadingListByIDInvalidEndpoint
+  Scenario: Get reading list data by ID with invalid endpoint
+    Given I set GET reading list by ID with invalid endpoint
+    When I send HTTP GET reading list request with invalid endpoint
+    Then I receive a valid HTTP reading list response code 404 Not Found
+
+  @GetReadingListWithInvalidID
+  Scenario: Get reading list data with invalid ID
+    Given I set GET reading list invalid ID with valid endpoint
+    When I send HTTP GET reading list request with invalid ID
+    Then I receive a valid HTTP reading list response code 400
+
+  @GetReadingListWithInvalidToken
+  Scenario: Get reading list data by ID with invalid token
+    Given I set GET reading list by ID with valid endpoint but invalid token
+    When I send HTTP GET reading list request with invalid token
+    Then I receive a valid HTTP reading list response code 401 Invalid Token
+
+  @UpdateReadingList
+  Scenario: Update reading list data with valid endpoint
+    Given I set PUT reading list with valid endpoint
+    When I send HTTP PUT reading list request with valid endpoint
+    Then I receive a valid HTTP update reading list response code 200 OK
+
+  @UpdateReadingListInvalidEndpoint
+  Scenario: Update reading list data with invalid endpoint
+    Given I set PUT reading list with invalid endpoint
+    When I send HTTP PUT reading list request with invalid endpoint
+    Then I receive a valid HTTP update reading list response code 404
+
+  @UpdateReadingListInvalidID
+  Scenario: Update reading list data with invalid ID
+    Given I set PUT reading list with invalid ID
+    When I send HTTP PUT reading list request with invalid ID
+    Then I receive a valid HTTP update reading list response code 400
+
+  @UpdateReadingListInvalidToken
+  Scenario: Update reading list data with invalid token
+    Given I set PUT reading list with invalid token
+    When I send HTTP PUT reading list request with invalid token
+    Then I receive a valid HTTP update reading list response code 401
+
+  @DeleteReadingList
+  Scenario: Delete reading list with valid endpoint
+    Given I set DELETE reading list with valid endpoint
+    When I send HTTP DELETE reading list request with valid endpoint
+    Then I receive a valid HTTP delete reading list response code 200 OK
+
+  @DeleteReadingListInvalidEndpoint
+  Scenario: Delete reading list with invalid endpoint
+    Given I set DELETE reading list with invalid endpoint
+    When I send HTTP DELETE reading list request with invalid endpoint
+    Then I receive a valid HTTP delete reading list response code 404
+
+  @DeleteReadingListInvalidID
+  Scenario: Delete reading list with invalid ID
+    Given I set DELETE reading list with invalid ID
+    When I send HTTP DELETE reading list request with invalid ID
+    Then I receive a valid HTTP delete reading list response code 400
+
+  @DeleteReadingListInvalidToken
+  Scenario: Delete reading list with invalid token
+    Given I set DELETE reading list with invalid token
+    When I send HTTP DELETE reading list request with invalid token
+    Then I receive a valid HTTP delete reading list response code 401
