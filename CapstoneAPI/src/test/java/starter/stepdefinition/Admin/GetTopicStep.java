@@ -37,4 +37,18 @@ public class GetTopicStep {
     public void failViewAdminProfile() {
         topic.failViewAdminProfile();
     }
+
+    // View All Topics With Wrong Endpoint
+    @Given("I set topic endpoints url")
+    public void setGetTopic() {
+        topic.setTopicInvEndpoint();
+    }
+    @When("I send a get topic request with wrong endpoint")
+    public void sendRequestInvEnd() {
+        topic.sendReqInvEnd();
+    }
+    @Then("I fail to view all topics and receive status code 404")
+    public void failViewTopic404() {
+        topic.failViewTopic404();
+    }
 }

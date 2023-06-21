@@ -25,4 +25,14 @@ public class GetTopic {
         restAssuredThat(response -> response.statusCode(405));
         restAssuredThat(response -> response.body("message", equalTo("Method Not Allowed")));
     }
+    public String setTopicInvEndpoint() {
+        return url + "/pics";
+    }
+    public void sendReqInvEnd() {
+        SerenityRest.given().relaxedHTTPSValidation()
+                .header("Content-Type", "application/json").get(setTopicInvEndpoint());
+    }
+    public void failViewTopic404() {
+        restAssuredThat(response -> response.statusCode(404));
+    }
 }
