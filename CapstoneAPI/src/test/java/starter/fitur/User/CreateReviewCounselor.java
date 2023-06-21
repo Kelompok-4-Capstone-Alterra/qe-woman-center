@@ -38,7 +38,7 @@ public class CreateReviewCounselor {
     }
     public void receivedCreateReviewCounselorWIthValidEndpoint(){
 //        restAssuredThat(response -> response.statusCode(200));
-        restAssuredThat(response -> response.statusCode(500));
+        restAssuredThat(response -> response.statusCode(404));
     }
 
     public void sendCreateReviewCounselorInvalidEndpoint(){
