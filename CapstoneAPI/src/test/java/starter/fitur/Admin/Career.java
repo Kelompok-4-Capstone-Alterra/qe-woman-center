@@ -110,10 +110,9 @@ public class Career {
     }
 
     public void sendDeleteCareerRequest() {
-        System.out.println(token);
         SerenityRest.given().relaxedHTTPSValidation()
                 .header("Content-Type", "application/json")
-                .auth().oauth2(token)
+                .auth().oauth2(Login.adminToken)
                 .delete(setDeleteCareerEndpoint(careerUUID));
     }
 

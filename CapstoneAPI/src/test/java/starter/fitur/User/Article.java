@@ -207,4 +207,23 @@ public class Article {
         restAssuredThat(response -> response.body("meta.message", equalTo("invalid token")));
         restAssuredThat(response -> response.body("meta.status", equalTo(401)));
     }
+
+    private String articleUUID;
+
+    // read article
+    public String setUserGetArticleEndpoint(String uuid) {
+        articleUUID = uuid;
+        return url + "/users/articles/" + uuid;
+    }
+
+    public void sendUserGetArticleRequest() {
+        SerenityRest.given().relaxedHTTPSValidation()
+                .header("Content-Type", "application/json")
+                .auth().oauth2(Login.userToken)
+                .get(setUserGetArticleEndpoint(articleUUID));
+    }
+
+    public void verifyUserArticleResponseCode(int statusCode) {
+        restAssuredThat(response -> response.statusCode(statusCode));
+    }
 }
