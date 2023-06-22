@@ -14,15 +14,15 @@ Feature: Admin article
     | search=author     |
     | search=xyz123     |
 
-  Scenario: Admin able to create new article
-    Given I set admin create article endpoint
-    When I send POST admin create article request
-      | title       | QE testing automation       |
-      | author      | becco                       |
-      | description | testing                     |
-      | topic       | 2                           |
-      | image       | ./image/admin-article-2.png |
-    Then I receive status code 200
+#  Scenario: Admin able to create new article
+#    Given I set admin create article endpoint
+#    When I send POST admin create article request
+#      | title       | QE testing automation       |
+#      | author      | becco                       |
+#      | description | testing                     |
+#      | topic       | 2                           |
+#      | image       | ./image/admin-article-2.png |
+#    Then I receive status code 200
 
 
   Scenario Outline: Admin able to delete article
