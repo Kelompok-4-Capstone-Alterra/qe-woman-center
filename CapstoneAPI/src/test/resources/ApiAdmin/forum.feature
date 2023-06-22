@@ -14,3 +14,18 @@ Feature: Admin Get All Forum
     Given I set forum endpoint
     When I send a get forum request with invalid token
     Then I fail view all forum 401
+
+  Scenario: View Forum Detail By ID
+    Given I set forum endpoint URL with ID
+    When I send a get forum request with valid id
+    Then I success view forum detail
+
+  Scenario: View Forum Detail By Invalid ID
+    Given I set forum endpoint URL with invalid ID
+    When I send a get forum request with invalid id
+    Then I fail view forum detail 400
+
+  Scenario: View Forum Detail By Invalid Token
+    Given I set forum endpoint URL with invalid token
+    When I send a get forum by id request with invalid token
+    Then I fail view forum detail 401

@@ -51,4 +51,46 @@ public class ForumStep {
     public void failViewForum401() {
         forum.response401();
     }
+
+    // View Forum Detail by ID
+    @Given("I set forum endpoint URL with ID")
+    public void setForumByIdEndpoint() {
+        forum.setForumEndpointByID();
+    }
+    @When("I send a get forum request with valid id")
+    public void sendReqByID() {
+        forum.sendReqByID();
+    }
+    @Then("I success view forum detail")
+    public void successViewForumDetail() {
+        forum.response200();
+    }
+
+    // View Forum Detail by invalid ID
+    @Given("I set forum endpoint URL with invalid ID")
+    public void setForumByIdEndpoints() {
+        forum.setForumEndpointByInvID();
+    }
+    @When("I send a get forum request with invalid id")
+    public void sendReqByInvID() {
+        forum.sendReqByInvID();
+    }
+    @Then("I fail view forum detail 400")
+    public void failViewForumDetail400() {
+        forum.response400();
+    }
+
+    // View Forum Detail by invalid Token
+    @Given("I set forum endpoint URL with invalid token")
+    public void setForumByIdEnd() {
+        forum.setForumEndpointByID();
+    }
+    @When("I send a get forum by id request with invalid token")
+    public void sendReqByInvToken() {
+        forum.sendReqByInvToken();
+    }
+    @Then("I fail view forum detail 401")
+    public void failViewForumDetail401() {
+        forum.response401();
+    }
 }

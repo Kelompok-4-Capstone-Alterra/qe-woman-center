@@ -8,6 +8,9 @@ public class Forum {
     protected static String url = "https://13.210.163.192:8080";
     protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2NjUxNDR9.nZLq5gyBWjT6HCsbdqs824hie90cR-gnizph_4h_WEg";
     protected static String invalidToken = "eyJh";
+    protected static String id = "57046646-4caf-4dc2-a457-2b7e66f72955";
+    protected static String invId = "10ebec19-b89e-4b74-aa29-c1d7c0997cfu";
+
 
     public String setForumEndpoint() {
         return url + "/admin/forums";
@@ -40,5 +43,33 @@ public class Forum {
     }
     public void response401() {
         restAssuredThat(response -> response.statusCode(401));
+    }
+
+    // Get forum By ID
+    public String setForumEndpointByID() {
+        return url + "/admin/forums" + "/" + id;
+    }
+    public void sendReqByID() {
+        SerenityRest.
+                given().relaxedHTTPSValidation().auth()
+                .oauth2(token).get(setForumEndpointByID());
+    }
+
+    public String setForumEndpointByInvID() {
+        return url + "/admin/forums" + "/" + invId;
+    }
+    public void sendReqByInvID() {
+        SerenityRest.
+                given().relaxedHTTPSValidation().auth()
+                .oauth2(token).get(setForumEndpointByInvID());
+    }
+    public void response400() {
+        restAssuredThat(response -> response.statusCode(400));
+    }
+
+    public void sendReqByInvToken() {
+        SerenityRest.
+                given().relaxedHTTPSValidation().auth()
+                .oauth2(invalidToken).get(setForumEndpointByID());
     }
 }
