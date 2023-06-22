@@ -1,8 +1,11 @@
 package starter.fitur.User;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.parsing.Parser;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
+import org.json.simple.JSONObject;
 
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -112,5 +115,174 @@ public class Forum {
     public void messageInvalidToken(){
         restAssuredThat(response -> response.body("meta.message", equalTo("invalid token")));
         restAssuredThat(response -> response.body("meta.status", equalTo(401)));
+    }
+
+    // update forum
+    @Step("I set PUT forum valid endpoint")
+    public String setPutForumValidEndpoint() {
+        return url + "/users/forums/5f380d1d-0a77-40fa-a98a-485dd95c647a";
+    }
+
+    @Step("I set PUT forum invalid endpoint")
+    public String setPutForumInvalidEndpoint() {
+        return url + "/users/forum/5f380d1d-0a77-40fa-a98a-485dd95c647a";
+    }
+
+    @Step("I set PUT forum valid endpoint with invalid ID")
+    public String setPutForumInvalidID() {
+        return url + "/users/forums/Bd681f7c-7cda-4e5d-a60f-5b182a5b8f10";
+    }
+
+    @Step("I set PUT forum valid endpoint with invalid token")
+    public String setPutForumInvalidToken() {
+        return url + "/users/forums/5f380d1d-0a77-40fa-a98a-485dd95c647a";
+    }
+
+    // join forum
+    @Step("I set POST forum valid endpoint")
+    public String setPostForumValidEndpoint() {
+        return url + "/users/forums/joins";
+    }
+
+    @Step("I set POST forum invalid endpoint")
+    public String setPostForumInvalidEndpoint() {
+        return url + "/users/forum/join";
+    }
+
+    @Step("I set POST forum valid endpoint with invalid ID")
+    public String setPostForumInvalidID() {
+        return url + "/users/forums/joins";
+    }
+
+    @Step("I set POST forum valid endpoint with invalid token")
+    public String setPostForumInvalidToken() {
+        return url + "/users/forums/joins";
+    }
+
+    // update forum
+    @Step("I send HTTP PUT forum to request with valid endpoint")
+    public void sendPutReqForumValidEndpoint() {
+        RestAssured.defaultParser = Parser.JSON;
+        SerenityRest
+                .given().relaxedHTTPSValidation()
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA")
+                .put(setPutForumValidEndpoint());
+
+    }
+
+    @Step("I received HTTP forum response code 200 OK")
+    public void HttpPutForumResponse200() {
+        restAssuredThat(response -> response.statusCode(200));
+    }
+
+    @Step("I send HTTP PUT forum to request with invalid endpoint")
+    public void sendPutReqForumInvalidEndpoint() {
+        RestAssured.defaultParser = Parser.JSON;
+        SerenityRest
+                .given().relaxedHTTPSValidation()
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA")
+                .put(setPutForumInvalidEndpoint());
+
+    }
+
+    @Step("I received HTTP forum response code 404 Not Found")
+    public void HttpPutForumResponse404() {
+        restAssuredThat(response -> response.statusCode(404));
+    }
+
+    @Step("I send HTTP PUT forum to request with invalid ID")
+    public void sendPutReqForumInvalidID() {
+        RestAssured.defaultParser = Parser.JSON;
+        SerenityRest
+                .given().relaxedHTTPSValidation()
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA")
+                .put(setPutForumInvalidID());
+
+    }
+
+    @Step("I received HTTP forum response code 400")
+    public void HttpPutForumResponse400() {
+        restAssuredThat(response -> response.statusCode(400));
+    }
+
+    @Step("I send HTTP PUT forum to request with invalid token")
+    public void sendPutReqForumInvalidToken() {
+        RestAssured.defaultParser = Parser.JSON;
+        SerenityRest
+                .given().relaxedHTTPSValidation()
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ")
+                .put(setPutForumInvalidToken());
+
+    }
+
+    @Step("I received HTTP forum response code 401")
+    public void HttpPutForumResponse401() {
+        restAssuredThat(response -> response.statusCode(401));
+    }
+
+    // join forum
+    @Step("I send HTTP POST forum to request with valid endpoint")
+    public void sendPostReqForumValidEndpoint() {
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("forum_id", "9f03dd62-7744-4963-b122-61bbba21653b");
+
+        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA";
+        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .header("Content-Type", "application/json").body(requestBody.toJSONString())
+                .post(setPostForumValidEndpoint());
+    }
+
+    @Step("I received HTTP join forum response code 200 OK")
+    public void HttpPostForumResponse200() {
+        restAssuredThat(response -> response.statusCode(200));
+    }
+
+    @Step("I send HTTP POST forum to request with invalid endpoint")
+    public void sendPostReqForumInvalidEndpoint() {
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("forum_id", "9f03dd62-7744-4963-b122-61bbba21653b");
+
+        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA";
+        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .header("Content-Type", "application/json").body(requestBody.toJSONString())
+                .post(setPostForumInvalidEndpoint());
+    }
+
+    @Step("I received HTTP join forum response code 404 Not Found")
+    public void HttpPostForumResponse404() {
+        restAssuredThat(response -> response.statusCode(404));
+    }
+
+    @Step("I send HTTP POST forum to request with invalid ID")
+    public void sendPostReqForumInvalidID() {
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("forum_id", "b8e86d73-c9fa-46d1-e6c47df32612");
+
+        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA";
+        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .header("Content-Type", "application/json").body(requestBody.toJSONString())
+                .post(setPostForumInvalidID());
+    }
+
+    @Step("I received HTTP join forum response code 400")
+    public void HttpPostForumResponse400() {
+        restAssuredThat(response -> response.statusCode(400));
+    }
+
+
+    @Step("I send HTTP POST forum to request with invalid token")
+    public void sendPostReqForumInvalidToken() {
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("forum_id", "9f03dd62-7744-4963-b122-61bbba21653b");
+
+        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc2ODU1NzN9";
+        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .header("Content-Type", "application/json").body(requestBody.toJSONString())
+                .post(setPostForumInvalidToken());
+    }
+
+    @Step("I received HTTP join forum response code 401")
+    public void HttpPostForumResponse401() {
+        restAssuredThat(response -> response.statusCode(401));
     }
 }
