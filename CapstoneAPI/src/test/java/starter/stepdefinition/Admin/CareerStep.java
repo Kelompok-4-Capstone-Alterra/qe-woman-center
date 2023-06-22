@@ -67,20 +67,6 @@ public class CareerStep {
         career.failViewCareer401();
     }
 
-    // Add new career data
-    @Given("I set add career endpoint")
-    public void setLoginEndpointUrl() {
-        career.setCareerEndpoint();
-    }
-    @When("I send POST request valid data")
-    public void sendPostRequest(io.cucumber.datatable.DataTable dataTable) {
-        career.data(dataTable);
-    }
-    @Then("I receive valid response")
-    public void verifyResponse() {
-        career.response();
-    }
-
     // career search
     @Given("I set search career based on {string} input endpoint")
     public void iSetSearchCareerBasedOnInputEndpoint(String search) {
