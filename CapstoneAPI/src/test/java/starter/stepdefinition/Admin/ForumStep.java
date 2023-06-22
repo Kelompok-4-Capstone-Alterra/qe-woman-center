@@ -93,4 +93,32 @@ public class ForumStep {
     public void failViewForumDetail401() {
         forum.response401();
     }
+
+    // Delete Forum by ID
+    @Given("I set forum endpoint with valid ID")
+    public void setDeleteForumByIdEndpoint() {
+        forum.setDeleteForumEndpointInvID();
+    }
+    @When("I send a delete forum request with valid id")
+    public void sendReqDeleteByID() {
+        forum.sendReqDeleteByID();
+    }
+    @Then("I success delete forum by id")
+    public void successDeleteForum() {
+        // forum.response200();
+    }
+
+    // Delete Forum by invalid ID
+    @Given("I set forum endpoint with invalid ID")
+    public void setDeleteForumByInvIdEndpoint() {
+        forum.setDeleteForumEndpointInvID();
+    }
+    @When("I send a delete forum request with invalid id")
+    public void sendReqDeleteInvID() {
+        forum.sendReqDeleteInvID();
+    }
+    @Then("I fail delete forum by id 400")
+    public void failDeleteForum() {
+        forum.response400();
+    }
 }
