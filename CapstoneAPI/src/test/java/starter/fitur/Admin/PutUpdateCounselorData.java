@@ -11,13 +11,13 @@ public class PutUpdateCounselorData {
     protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc1OTk4NTN9.auCTT-lhLfcPCVWyjr9ljFTiY-9OXoCKEre4XdWVri4";
 
     public String setPutUpdateCounselorDataValidEndpoint(){
-        return url + "/admin/counselors/7993b562-0534-11ee-8266-0242c0a8b003";
+        return url + "/admin/counselors/97e192e7-09c8-11ee-b8a9-0242ac140003";
     }
     public String setPutUpdateCounselorDataWithEndpointAndInvalidId(){
         return url + "/admin/counselors/08bc0b11-068c-11ee-a18f-0242c0a8d00";
     }
     public String setPutUpdateCounselorDataInvalidEndpoint(){
-        return url + "/admin/counselor/7993b562-0534-11ee-8266-0242c0a8b003";
+        return url + "/admin/counselor/97e192e7-09c8-11ee-b8a9-0242ac140003";
     }
 
     public void sendReqPutUpdateCounselorDataValidEndpoint(){

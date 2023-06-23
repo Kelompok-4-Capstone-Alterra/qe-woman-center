@@ -6,10 +6,10 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class GetAllUserCounselor {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3MzQ0NDc0fQ.pBUnVv7Z4mW0tCtC1VXSX6yP4h50NMB1X8m1QYxLtbU";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NjM4MTg3fQ.z3LMnCpNNuPss88nlt_ROseFmdzJ4sTeqsbKNexIC6Q";
 
     public String setGetAllUserCounselorValidEndpoint(){
-        return url + "/users/counselors?topic=1&sort_by=lowest_price";
+        return url + "/users/public/counselors?topic=1";
     }
     public String setGetAllUserCounselorInvalidEndpoint(){
         return url + "/user/counselors?topic=1&sort_by=lowest_price";

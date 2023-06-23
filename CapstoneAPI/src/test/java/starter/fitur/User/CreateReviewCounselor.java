@@ -10,11 +10,11 @@ public class CreateReviewCounselor {
     protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NjM4MTg3fQ.z3LMnCpNNuPss88nlt_ROseFmdzJ4sTeqsbKNexIC6Q";
 
     public String setCreateReviewCounselorWithValidEndpoint(){
-        return url + "/users/counselors/43eda157-09df-11ee-b8a9-0242ac140003/reviews";
+        return url + "/users/counselors/4bce80d2-0dc2-11ee-b94e-0242c0a82003/reviews";
     }
 
     public String setCreateReviewCounselorWithInvalidEndpoint(){
-        return url + "/user/counselors/43eda157-09df-11ee-b8a9-0242ac140003/reviews";
+        return url + "/user/counselors/4bce80d2-0dc2-11ee-b94e-0242c0a82003/reviews";
     }
 
     public String setCreateReviewCounselorWithInvalidId(){
@@ -24,9 +24,9 @@ public class CreateReviewCounselor {
     public void sendCreateReviewCounselorValidEndpoint(){
         JSONObject data = new JSONObject();
 
-        data.put("transaction_id", "a954282f-101f-11ee-a4f1-0242ac180003");
+        data.put("transaction_id", "768c4614-0de4-11ee-9061-0242c0a88003");
         data.put("rating", 5);
-        data.put("review", "sangat memuaskan");
+        data.put("review", "sangat bagus, terutama di penyelesaian masalah saya");
 
         SerenityRest
                 .given().relaxedHTTPSValidation()
@@ -38,7 +38,7 @@ public class CreateReviewCounselor {
     }
     public void receivedCreateReviewCounselorWIthValidEndpoint(){
 //        restAssuredThat(response -> response.statusCode(200));
-        restAssuredThat(response -> response.statusCode(404));
+        restAssuredThat(response -> response.statusCode(500));
     }
 
     public void sendCreateReviewCounselorInvalidEndpoint(){

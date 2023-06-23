@@ -11,11 +11,11 @@ public class UpdateSchedule {
     protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc1OTk4NTN9.auCTT-lhLfcPCVWyjr9ljFTiY-9OXoCKEre4XdWVri4";
 
     public String setPutUpdateScheduleWithValidEndpoint(){
-        return url + "/admin/counselors/7993b562-0534-11ee-8266-0242c0a8b003";
+        return url + "/admin/counselors/43eda157-09df-11ee-b8a9-0242ac140003";
     }
 
     public String setPutUpdateScheduleWithInvalidEndpoint(){
-        return url + "/admn/counselors/08bc0b11-068c-11ee-a18f-0242c0a8d003";
+        return url + "/admn/counselors/43eda157-09df-11ee-b8a9-0242ac140003";
     }
 
     public String setUpdateScheduleInvalidId(){
@@ -27,7 +27,7 @@ public class UpdateSchedule {
         requestBody.put("dates", "2023-11-10\",\"2023-12-02");
         requestBody.put("times", "08:00:00\",\"13:00:00");
         SerenityRest
-        .given().relaxedHTTPSValidation()
+                .given().relaxedHTTPSValidation()
                 .auth()
                 .oauth2(token)
                 .contentType("application/json")
