@@ -16,7 +16,7 @@ public class Login {
     private Response response;
 
     public String setLoginEndpoint() {
-        return url + "/admin/login";
+        return url + "/admin/auth/login";
     }
 
     public void sendPostRequest(String username, String password) {
