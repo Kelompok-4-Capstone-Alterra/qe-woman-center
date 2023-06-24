@@ -1,4 +1,4 @@
-package starter.fitur.Admin;
+package starter.fitur.User;
 
 import net.serenitybdd.rest.SerenityRest;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;

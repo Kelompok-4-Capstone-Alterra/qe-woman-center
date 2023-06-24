@@ -1,10 +1,10 @@
-package starter.stepdefinition.Admin;
+package starter.stepdefinition.User;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import starter.fitur.Admin.GetTopic;
+import starter.fitur.User.GetTopic;
 
 public class GetTopicStep {
     @Steps
