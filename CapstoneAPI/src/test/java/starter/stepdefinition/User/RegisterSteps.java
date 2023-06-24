@@ -25,4 +25,15 @@ public class RegisterSteps {
         int statusCode = Integer.parseInt(s_statusCode);
         register.receiveVerifyCredentialStatusCode(statusCode);
     }
+
+    // new verify
+    @Given("I set POST new user verify credential endpoint")
+    public void iSetPOSTNewUserVerifyCredentialEndpoint() {
+        register.setNewVerifyCredentialEndpoint();
+    }
+
+    @When("I send POST new user verify credential request with {string} and {string}")
+    public void iSendPOSTNewUserVerifyCredentialRequestWithAnd(String email, String username) {
+        register.sendNewVerifyCredentialRequest(email, username);
+    }
 }

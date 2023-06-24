@@ -29,4 +29,22 @@ public class Register {
     public void receiveVerifyCredentialStatusCode(int statusCode) {
         response.then().statusCode(statusCode);
     }
+
+    // new verify
+    public String setNewVerifyCredentialEndpoint() {
+        return url + "/users/auth/verify/unique";
+    }
+
+    public void sendNewVerifyCredentialRequest(String email, String username) {
+        JSONObject body = new JSONObject();
+        body.put("email", email);
+        body.put("username", username);
+
+        RequestSpecification request = given().relaxedHTTPSValidation()
+                .baseUri(setNewVerifyCredentialEndpoint())
+                .header("Content-Type", "application/json")
+                .body(body.toJSONString());
+
+        response = request.post();
+    }
 }
