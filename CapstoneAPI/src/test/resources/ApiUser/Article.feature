@@ -82,12 +82,22 @@ Feature: Article
     When I send DELETE comment Request without token
     Then I fail delete comment and response code 401
 
-  Scenario Outline: User able to read article
+  Scenario Outline: User able to read article with login
     Given I set user get article endpoint with "<uuid>"
     When I send GET user get article request
     Then I receive user get article status code response "<code>"
     Examples:
       | uuid                                 | code |
-      | 24dd5102-0c26-11ee-9bfb-0242ac1c0003 | 200  |
+      | 26625c52-127c-11ee-a995-0242ac130003 | 200  |
+      | 24dd5102-0c26-11ee-9bfb-0242ac1c0001 | 400  |
+      | 24dd5102-0c26-11ee-9bfb-0242ac1c000  | 400  |
+
+  Scenario Outline: User able to read article without login
+    Given I set new user get article endpoint with "<uuid>"
+    When I send GET new user get article request
+    Then I receive user get article status code response "<code>"
+    Examples:
+      | uuid                                 | code |
+      | 26625c52-127c-11ee-a995-0242ac130003 | 200  |
       | 24dd5102-0c26-11ee-9bfb-0242ac1c0001 | 400  |
       | 24dd5102-0c26-11ee-9bfb-0242ac1c000  | 400  |

@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Article {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5M2YxMGM0LTAzYTEtMTFlZS1iNDRkLTAyNDJjMGE4NDAwMyIsImVtYWlsIjoid2F2YXhpeTY0OUBwZW9naS5jb20iLCJ1c2VybmFtZSI6IndhdmF4aXkxMjMiLCJhdXRoX2J5IjoiYXV0aCIsImV4cCI6MTY4NzI3NTM2NX0.yQUyxnWxwEB0IE9lPhOTomtztvAp-gpWTQc9pOYBgtM";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3ODMxOTQxfQ.erSbQWX8QiriwMIaYzniLOqXCq6tdK1F0u05HLilRC8";
 
     @Step("I set Get articles non login endpoint")
     public String setGetArticleEndpoint() {
@@ -219,11 +219,22 @@ public class Article {
     public void sendUserGetArticleRequest() {
         SerenityRest.given().relaxedHTTPSValidation()
                 .header("Content-Type", "application/json")
-                .auth().oauth2(Login.userToken)
+                .auth().oauth2(token)
                 .get(setUserGetArticleEndpoint(articleUUID));
     }
 
     public void verifyUserArticleResponseCode(int statusCode) {
         restAssuredThat(response -> response.statusCode(statusCode));
+    }
+
+    public String setNewUserGetArticleEndpoint(String uuid) {
+        articleUUID = uuid;
+        return url + "/users/public/articles/" + uuid;
+    }
+
+    public void sendNewUserGetArticleRequest() {
+        SerenityRest.given().relaxedHTTPSValidation()
+                .header("Content-Type", "application/json")
+                .get(setNewUserGetArticleEndpoint(articleUUID));
     }
 }

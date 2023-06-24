@@ -70,6 +70,7 @@ public class ArticleSteps {
     @Then("I fail delete comment and response code 401")
     public void failDel401(){article.failDel401();}
 
+    // read with login
     @Given("I set user get article endpoint with {string}")
     public void iSetUserGetArticleEndpointWith(String uuid) {
         article.setUserGetArticleEndpoint(uuid);
@@ -84,5 +85,16 @@ public class ArticleSteps {
     public void iReceiveUserGetArticleStatusCodeResponse(String code) {
         int statusCode = Integer.parseInt(code);
         article.verifyUserArticleResponseCode(statusCode);
+    }
+
+    // read without login
+    @Given("I set new user get article endpoint with {string}")
+    public void iSetNewUserGetArticleEndpointWith(String uuid) {
+        article.setNewUserGetArticleEndpoint(uuid);
+    }
+
+    @When("I send GET new user get article request")
+    public void iSendGETNewUserGetArticleRequest() {
+        article.sendNewUserGetArticleRequest();
     }
 }
