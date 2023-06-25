@@ -8,7 +8,7 @@ Feature: Delete - Delete Schedule
   Scenario: Delete Schedule With Valid Endpoint
     Given I set delete schedule valid endpoint
     When I send delete schedule HTTP request with valid endpoint
-    Then I received valid Delete schedule HTTP response code 200
+    Then I received valid Delete schedule HTTP response code
 
   @DeleteScheduleInvalidEndpoint
   Scenario: Delete Schedule With invalid Endpoint
