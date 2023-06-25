@@ -12,3 +12,5 @@ Link Test Plan: https://docs.google.com/document/d/1WafzzXRst-PKHFFwhVpfZl1FboZ_
 Link MVP: https://docs.google.com/document/d/1jaCv1B89eG6QL9zc2ENpjuAdzQls35yZ2YVjAEfuX7o/edit?usp=sharing
 
 Link Test Case dan Test Documentation: https://docs.google.com/spreadsheets/d/1jHukVEEjiKQRTdvoX8xapL7G7-JpouKONXo9kFM9nD0/edit?usp=sharing
+
+Link Bug Report: https://docs.google.com/document/d/1t-zzE8sqgLskJtpU5IdKUsmjHSXxFxl-/edit
