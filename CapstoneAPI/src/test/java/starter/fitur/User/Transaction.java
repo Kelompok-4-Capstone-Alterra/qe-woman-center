@@ -45,7 +45,7 @@ public class Transaction {
         requestBody.put("consultation_method", "chat");
         requestBody.put("voucher_id", "");
 
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5M2YxMGM0LTAzYTEtMTFlZS1iNDRkLTAyNDJjMGE4NDAwMyIsImVtYWlsIjoid2F2YXhpeTY0OUBwZW9naS5jb20iLCJ1c2VybmFtZSI6IndhdmF4aXkxMjMiLCJhdXRoX2J5IjoiYXV0aCIsImV4cCI6MTY4NzQyNTA5OX0.UFmwqM400nHijAvfrp9WsmiDGHwKrQNidzVPHxB0OOY";
+        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8";
         SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
                 .header("Content-Type", "application/json").body(requestBody.toJSONString())
                 .post(setPostTransaction());
@@ -71,7 +71,7 @@ public class Transaction {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3MzU2MzQ1fQ.4vbW9ef6DBqzzLhCi6QH9gjfg7bSCzx5WXjyYTfMP2c")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .get(setGetAllTransaction());
 
     }
@@ -87,7 +87,7 @@ public class Transaction {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3MzU2MzQ1fQ.4vbW9ef6DBqzzLhCi6QH9gjfg7bSCzx5WXjyYTfMP2c")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .get(setGetTransactionInvalidEndpoint());
 
     }
