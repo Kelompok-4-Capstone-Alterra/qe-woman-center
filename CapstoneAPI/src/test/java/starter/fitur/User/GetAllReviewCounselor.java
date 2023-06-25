@@ -6,7 +6,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class GetAllReviewCounselor {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY5M2YxMGM0LTAzYTEtMTFlZS1iNDRkLTAyNDJjMGE4NDAwMyIsImVtYWlsIjoid2F2YXhpeTY0OUBwZW9naS5jb20iLCJ1c2VybmFtZSI6IndhdmF4aXkxMjMiLCJhdXRoX2J5IjoiYXV0aCIsImV4cCI6MTY4NzMyNTczOX0.7pkO5lqGW80E3BXNuPWB5lWmIgN6uc0xOJBqJnZWMgk";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTIwODI0fQ.cAebekCWSJbjwTnGrl_cVMRpQwoRB8epKjISstei-L8";
 
     public String setGetAllReviewCounselorWithValidEndpoint(){
         return url + "/users/counselors/43eda157-09df-11ee-b8a9-0242ac140003/reviews";

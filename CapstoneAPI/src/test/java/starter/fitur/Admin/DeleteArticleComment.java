@@ -6,7 +6,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class DeleteArticleComment {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc1OTk4NTN9.auCTT-lhLfcPCVWyjr9ljFTiY-9OXoCKEre4XdWVri4";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc5MjExMjN9.emN-gYe3TUSMSvFvLRXFur0tMwwQSeW82SA9sgCs6Ho";
 
     public String setDeleteArticleCommentWithValidEndpoint(){
         return url + "/admin/articles/5819b9a2-0cd8-11ee-8713-0242ac1d0003/comments/eeb2aa08-0cdf-11ee-8713-0242ac1d0003";

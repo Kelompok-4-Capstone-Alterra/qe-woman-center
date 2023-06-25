@@ -10,7 +10,7 @@ public class DeleteScheduleSteps {
     @Steps
     DeleteSchedule deleteSchedule;
 
-//    Valid Endpoint
+    //    Valid Endpoint
     @Given("I set delete schedule valid endpoint")
     public void setDeleteScheduleValidEndpoint(){
         deleteSchedule.setDeleteScheduleWithValidEndpoint();
@@ -19,12 +19,12 @@ public class DeleteScheduleSteps {
     public void sendDeleteScheduleHTTPRequestWithValidEndpoint(){
         deleteSchedule.sendDeleteScheduleValidEndpoint();
     }
-    @Then("I received valid Delete schedule HTTP response code 200")
+    @Then("I received valid Delete schedule HTTP response code")
     public void receivedDeleteScheduleHTTPResponseCode200(){
-        deleteSchedule.receivedDeleteResponseCode200();
+        deleteSchedule.receivedDeleteResponseCode();
     }
 
-//    Invalid endpoint
+    //    Invalid endpoint
     @Given("I set delete schedule invalid endpoint")
     public void setUpdateScheduleInvalidEndpoint(){
         deleteSchedule.setDeleteScheduleWithInvalidEndpoint();
@@ -38,7 +38,7 @@ public class DeleteScheduleSteps {
         deleteSchedule.receivedDeleteScheduleResponseCode404();
     }
 
-//    Invalid Id
+    //    Invalid Id
     @Given("I set delete schedule with endpoint and invalid id")
     public void setDeleteScheduleWithEndpointAndInvalidId(){
         deleteSchedule.setDeleteScheduleWithEndpointAndInvalidId();
@@ -52,7 +52,7 @@ public class DeleteScheduleSteps {
         deleteSchedule.receivedDeleteScheduleResponseCode400();
     }
 
-//    Without Token
+    //    Without Token
     @Given("I set delete schedule with endpoint")
     public void setDeleteScheduleWithEndpoint(){
         deleteSchedule.setDeleteScheduleWithoutToken();

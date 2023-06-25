@@ -6,10 +6,10 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class GetArticleById {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc1OTk4NTN9.auCTT-lhLfcPCVWyjr9ljFTiY-9OXoCKEre4XdWVri4";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc5MjExMjN9.emN-gYe3TUSMSvFvLRXFur0tMwwQSeW82SA9sgCs6Ho";
 
     public String setGetArticleByIdValidEndpoint(){
-        return url + "/admin/articles/7c5c2f6e-0e8f-11ee-87be-0242c0a8d003";
+        return url + "/admin/articles/7f57f4ab-127f-11ee-8cda-0242ac140003";
     }
     public String setGetArticleByIdInvalidEndpoint(){
         return url + "/admn/articles/5819b9a2-0cd8-11ee-8713-0242ac1d0003";
