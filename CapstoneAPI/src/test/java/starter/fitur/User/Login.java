@@ -13,7 +13,7 @@ public class Login {
     private Response response;
 
     public String setUserLoginEndpoint() {
-        return url + "/login";
+        return url + "/users/auth/login";
     }
 
     public void sendUserPostRequest(String username, String password) {
@@ -31,10 +31,12 @@ public class Login {
         String data = request.when().post().then().extract().body().asString();
         Gson gson = new Gson();
         JSONObject jsonObject = gson.fromJson(data, JSONObject.class);
-        String authData = (jsonObject.get("data").toString());
-        JSONObject jsonAuth = gson.fromJson(authData, JSONObject.class);
-        userToken = jsonAuth.get("token").toString();
-        System.out.println(userToken);
+        if (jsonObject.get("data") != null) {
+            String authData = (jsonObject.get("data").toString());
+            JSONObject jsonAuth = gson.fromJson(authData, JSONObject.class);
+            userToken = jsonAuth.get("token").toString();
+            System.out.println(userToken);
+        }
     }
 
     public void verifySuccessUserLogin() {

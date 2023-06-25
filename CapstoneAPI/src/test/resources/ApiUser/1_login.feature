@@ -5,9 +5,8 @@ Feature: Login
         When I send user POST request with "<username>" and "<password>"
         Then Success login and receive response with a token
         Examples:
-            | username   | password  |
-            | vokot123   | password1 |
-            | wavaxiy123 | password1 |
+            | username   | password                          |
+            | ivandev    | 98af8f4b100d11eea4f10242ac180003  |
 
     @test2
     Scenario Outline: As a user I am not able to login with invalid data
