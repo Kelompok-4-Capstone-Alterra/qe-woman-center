@@ -31,7 +31,7 @@ public class LoginSteps {
     }
     @When("I send POST request {string} and {string}")
     public void sendPostReq(String username, String password) {
-        login.sendPostRequest(username, password);
+        login.sendPostRequestInvData(username, password);
     }
     @Then("I fail login and receive response code 400")
     public void verifyResponseFail() {
