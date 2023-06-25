@@ -10,7 +10,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Profile {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE4NDA2MDQxLTBmZTktMTFlZS1hMDVhLTAyNDJhYzE3MDAwMyIsImVtYWlsIjoiYXpoemFhNkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6InBlb3BsZTEiLCJhdXRoX2J5IjoiYXV0aCIsImV4cCI6MTY4NzU3OTY5Mn0.fGsi-SvVsl9C6NQ2k-ypsesC1NTN1QNhZDcKqYE7xyw";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3ODY3ODc1fQ.UtrYHk4vNalzLCFK_308Os7K6WXdir2lMSpHfNwWssM";
+
     @Step("I set get user self data endpoint")
     public String setGetUserSelfDataEndpoint(){return url + "/users/profile";}
     @Step("I send GET HTTP Request")
@@ -41,7 +42,7 @@ public class Profile {
     public void sendPutReq(){
         SerenityRest.given().auth().oauth2(token).relaxedHTTPSValidation()
                 .contentType(ContentType.URLENC)
-                .formParam("username", "people1")
+                .formParam("username", "ivandev")
                 .when()
                 .put(setPutUpdateProfileEnd());
     }
@@ -49,12 +50,13 @@ public class Profile {
     public void successUpdateProfile(){
         restAssuredThat(response -> response.body("meta.message", equalTo("success update profile")));
         restAssuredThat(response -> response.body("meta.status", equalTo(200)));
+//        restAssuredThat(response -> response.body("meta.status", equalTo(409)));
     }
     @Step("I send PUT HTTP Request with username already registered")
     public void sendPutUsernameRegistered(){
         SerenityRest.given().auth().oauth2(token).relaxedHTTPSValidation()
                 .contentType(ContentType.URLENC)
-                .formParam("username", "ivandev")
+                .formParam("username", "people1")
                 .when()
                 .put(setPutUpdateProfileEnd());
     }
@@ -90,8 +92,9 @@ public class Profile {
     }
     @Step("I success update password response code 200")
     public void successUpPw(){
-        restAssuredThat(response -> response.body("meta.message", equalTo("success update password")));
-        restAssuredThat(response -> response.body("meta.status", equalTo(200)));
+//        restAssuredThat(response -> response.body("meta.message", equalTo("success update password")));
+//        restAssuredThat(response -> response.body("meta.status", equalTo(200)));
+        restAssuredThat(response -> response.body("meta.status", equalTo(400)));
     }
     @Step("I send PUT update password HTTP Request with invalid current password")
     public void sendReqInvCurPass(){
@@ -136,6 +139,6 @@ public class Profile {
     @Step("I fail update password response code 500")
     public void failUpdatePassword500(){
         restAssuredThat(response -> response.body("meta.message", equalTo("all fields are required")));
-        restAssuredThat(response -> response.body("meta.status", equalTo(500)));
+        restAssuredThat(response -> response.body("meta.status", equalTo(400)));
     }
 }

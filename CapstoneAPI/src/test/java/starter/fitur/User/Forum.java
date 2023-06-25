@@ -23,7 +23,7 @@ public class Forum {
         SerenityRest.given().relaxedHTTPSValidation().auth().oauth2(token)
                 .contentType(ContentType.URLENC)
                 .formParam("category_id", "2")
-                .formParam("link", "https://youtu.be/AbXyAoTS7Ps")
+                .formParam("link", "https://t.me/+J2TWk74XVccxN2Nl")
                 .formParam("topic", "membahas tentang spiritual")
                 .when()
                 .post(setCreateForumEnd());
