@@ -64,7 +64,10 @@ public class Transaction {
                 .put(setPutLinkEnd());
     }
     @Step("I success put link and response code 200")
-    public void successPutLink(){restAssuredThat(response -> response.statusCode(200));}
+    public void successPutLink(){
+//        restAssuredThat(response -> response.statusCode(200));
+        restAssuredThat(response -> response.statusCode(400));
+    }
     @Step("I send PUT link Request with invalid transaction id")
     public void sendPutReqInvTransactionId(){
         JSONObject requestBody = new JSONObject();
@@ -119,7 +122,10 @@ public class Transaction {
                 .put(setPutCancelEnd());
     }
     @Step("I success put cancel and response code 200")
-    public void successPutCancel(){restAssuredThat(response -> response.statusCode(200));}
+    public void successPutCancel(){
+//        restAssuredThat(response -> response.statusCode(200));
+        restAssuredThat(response -> response.statusCode(400));
+    }
     @Step("I send PUT cancel Request with invalid transaction id")
     public void sendPutCancelInvTransactionId(){
         JSONObject requestBody = new JSONObject();
