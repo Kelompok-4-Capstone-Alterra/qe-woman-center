@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class Voucher {
     protected static String url = "https://13.210.163.192:8080";
-    private static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3MzIyOTUwfQ.ZFIdN4_i2Qpu_JhyVnlmS0UQ5aq9yp40HycYSaEALdA";
+    private static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkMzY4ZDNkLTBmZmYtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoicmluaXR1YjAxQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicmluaSIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTIyMTc3fQ.hWf_8FimTl4ECgSqpUaL4YMqetYxWj_2QSOIkwZr4fU";
     protected static String invalidToken = "eyJh";
 
     public String setVoucherEndpoint() {

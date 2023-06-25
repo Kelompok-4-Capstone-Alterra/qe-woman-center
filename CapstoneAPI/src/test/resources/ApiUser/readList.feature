@@ -50,7 +50,7 @@ Feature: Reading List
     Then I receive valid response add article
     Examples:
       | article_id                                         | reading_list_id                        |
-      |4d5d5a00-0dda-11ee-8b27-0242c0a86003                | 12aa888d-2560-4bb3-9598-932112f2745b   |
+      |4d5d5a00-0dda-11ee-8b27-0242c0a86003                | 7083b3e8-0840-11ee-9db9-089798ecad5e   |
       |                                                    |                                        |
 
   Scenario Outline: Add article to reading list invalid token
