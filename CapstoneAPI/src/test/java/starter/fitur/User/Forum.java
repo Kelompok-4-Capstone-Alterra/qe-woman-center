@@ -12,7 +12,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Forum {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM4YzNhYjg4LTEwYzYtMTFlZS05ZWQzLTAyNDJjMGE4MTAwMyIsImVtYWlsIjoiYXpoYXJpZmF1emFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJwZW9wbGUxIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc2NzQ2MjB9.9sGiJf5xJPZeRhBRMRSetBfuBWWwkIyYuZgvS2zXPYA";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8";
+
     protected static String invToken = "abcdef";
 
     @Step("I set create forum endpoint")
@@ -165,7 +166,7 @@ public class Forum {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .put(setPutForumValidEndpoint());
 
     }
@@ -180,7 +181,7 @@ public class Forum {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .put(setPutForumInvalidEndpoint());
 
     }
@@ -195,7 +196,7 @@ public class Forum {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .put(setPutForumInvalidID());
 
     }
@@ -226,8 +227,7 @@ public class Forum {
         JSONObject requestBody = new JSONObject();
         requestBody.put("forum_id", "9f03dd62-7744-4963-b122-61bbba21653b");
 
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA";
-        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+        SerenityRest.given().auth().oauth2(token).relaxedHTTPSValidation()
                 .header("Content-Type", "application/json").body(requestBody.toJSONString())
                 .post(setPostForumValidEndpoint());
     }
@@ -242,8 +242,7 @@ public class Forum {
         JSONObject requestBody = new JSONObject();
         requestBody.put("forum_id", "9f03dd62-7744-4963-b122-61bbba21653b");
 
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA";
-        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+        SerenityRest.given().auth().oauth2(token).relaxedHTTPSValidation()
                 .header("Content-Type", "application/json").body(requestBody.toJSONString())
                 .post(setPostForumInvalidEndpoint());
     }
@@ -258,8 +257,7 @@ public class Forum {
         JSONObject requestBody = new JSONObject();
         requestBody.put("forum_id", "b8e86d73-c9fa-46d1-e6c47df32612");
 
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3NzAwNTI4fQ.2HzHsML37Ej9-r0s2uLPs5gd6ezxUvbaEL3dbHaXreA";
-        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+        SerenityRest.given().auth().oauth2(token).relaxedHTTPSValidation()
                 .header("Content-Type", "application/json").body(requestBody.toJSONString())
                 .post(setPostForumInvalidID());
     }
@@ -275,8 +273,7 @@ public class Forum {
         JSONObject requestBody = new JSONObject();
         requestBody.put("forum_id", "9f03dd62-7744-4963-b122-61bbba21653b");
 
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc2ODU1NzN9";
-        SerenityRest.given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+        SerenityRest.given().auth().oauth2(invToken).relaxedHTTPSValidation()
                 .header("Content-Type", "application/json").body(requestBody.toJSONString())
                 .post(setPostForumInvalidToken());
     }
