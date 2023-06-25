@@ -26,7 +26,7 @@ public class DeleteCounselor {
     }
     public void receivedDeleteCounselorResponseCode() {
 //        restAssuredThat(response -> response.statusCode(200));
-        restAssuredThat(response -> response.statusCode(500));
+        restAssuredThat(response -> response.statusCode(400));
     }
 
     public void sendReqDeleteCounselorWithEndpointAndInvalidId(){
