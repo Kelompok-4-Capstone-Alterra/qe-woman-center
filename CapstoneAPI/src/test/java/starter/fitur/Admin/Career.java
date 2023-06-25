@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class Career {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODY5MTM4MjZ9.ZZSSTRWtwSSsm3xTWaJ5hpwRTJVRFSk5Or-0DufQf7Y";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkMzY4ZDNkLTBmZmYtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoicmluaXR1YjAxQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicmluaSIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTIyMTc3fQ.hWf_8FimTl4ECgSqpUaL4YMqetYxWj_2QSOIkwZr4fU";
     protected static String invalidToken = "eyJh";
     private Response response;
     private Map<String, Object> data = new HashMap<>();
