@@ -42,6 +42,22 @@ public class Login {
         adminToken = jsonAuth.get("token").toString();
     }
 
+    public void sendPostRequestInvData(String username, String password) {
+        this.username = username;
+        this.password = password;
+
+        JSONObject body = new JSONObject();
+        body.put("username", username);
+        body.put("password", password);
+
+        RequestSpecification request = given().relaxedHTTPSValidation()
+                .baseUri(setLoginEndpoint())
+                .header("Content-Type", "application/json")
+                .body(body.toJSONString());
+
+        response = request.post();
+    }
+
     public void sendPostWrongMethod(String username, String password) {
         this.username = username;
         this.password = password;

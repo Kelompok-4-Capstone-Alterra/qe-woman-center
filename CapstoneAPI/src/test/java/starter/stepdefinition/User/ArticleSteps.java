@@ -69,32 +69,4 @@ public class ArticleSteps {
     public void sendDelComWithoutToken(){article.sendDelComWithoutToken();}
     @Then("I fail delete comment and response code 401")
     public void failDel401(){article.failDel401();}
-
-    // read with login
-    @Given("I set user get article endpoint with {string}")
-    public void iSetUserGetArticleEndpointWith(String uuid) {
-        article.setUserGetArticleEndpoint(uuid);
-    }
-
-    @When("I send GET user get article request")
-    public void iSendGETUserGetArticleRequest() {
-        article.sendUserGetArticleRequest();
-    }
-
-    @Then("I receive user get article status code response {string}")
-    public void iReceiveUserGetArticleStatusCodeResponse(String code) {
-        int statusCode = Integer.parseInt(code);
-        article.verifyUserArticleResponseCode(statusCode);
-    }
-
-    // read without login
-    @Given("I set new user get article endpoint with {string}")
-    public void iSetNewUserGetArticleEndpointWith(String uuid) {
-        article.setNewUserGetArticleEndpoint(uuid);
-    }
-
-    @When("I send GET new user get article request")
-    public void iSendGETNewUserGetArticleRequest() {
-        article.sendNewUserGetArticleRequest();
-    }
 }

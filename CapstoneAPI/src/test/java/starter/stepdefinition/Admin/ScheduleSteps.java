@@ -43,8 +43,10 @@ public class ScheduleSteps {
     public void invalidId(){schedule.invalidId();}
     @Then("I failed post counselor schedule and response code 400")
     public void code400(){schedule.code400();}
-    @When("I send POST HTTP Request with invalid body parameter")
-    public void invalidBodyParameter(){schedule.invalidBodyParameter();}
+    @When("I send POST HTTP Request with schedule already exist")
+    public void alreadyExist(){schedule.alreadyExist();}
+    @Then("I failed post counselor schedule and response code 409")
+    public void code409(){schedule.code409();}
     @When("I send POST HTTP Request with empty dates")
     public void emptyDates(){schedule.emptyDates();}
     @When("I send POST HTTP Request with empty body")

@@ -6,7 +6,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class Forum {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkMzY4ZDNkLTBmZmYtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoicmluaXR1YjAxQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicmluaSIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTIyMTc3fQ.hWf_8FimTl4ECgSqpUaL4YMqetYxWj_2QSOIkwZr4fU";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc5MjE4MTh9.yjnZ6ThqVUjF-pJ8bmpPRIo6Zw99WN9lkmd5FNvk2Wg";
     protected static String invalidToken = "eyJh";
     protected static String id = "57046646-4caf-4dc2-a457-2b7e66f72955";
     protected static String invId = "10ebec19-b89e-4b74-aa29-c1d7c0997cfu";
