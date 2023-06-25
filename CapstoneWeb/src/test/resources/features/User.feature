@@ -41,3 +41,19 @@ Feature: User
     When I choose users
     And I enter name
     Then I find user by search box
+
+  @SortByNewest
+  Scenario: As Admin, I can filter user sort by newest
+    Given I click user and counselor button
+    When I choose users
+    And I click sort by button
+    And I choose newest
+    Then I find user sort by newest
+
+  @SortByOldest
+  Scenario: As Admin, I can filter user sort by oldest
+    Given I click user and counselor button
+    When I choose users
+    And I click sort by button
+    And I choose oldest
+    Then I find user sort by oldest

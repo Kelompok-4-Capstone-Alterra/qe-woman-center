@@ -64,4 +64,15 @@ public class UserSteps {
     public void findUser(){
         user.validateName();
     }
+
+
+    //    Sort By Oldest
+    @And("I choose oldest")
+    public void chooseOldest(){
+        user.clickOldest();
+    }
+    @Then("I find user sort by oldest")
+    public void findUserSortByOldest(){
+        user.validateAdminUsers();
+    }
 }

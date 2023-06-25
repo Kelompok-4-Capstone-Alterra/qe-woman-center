@@ -34,6 +34,15 @@ public class User extends PageObject {
     private By search(){
         return By.xpath("//input[@class= 'w-full py-4 ps-16 text-[16px] tracking-[0.5px] placeholder:text-[16px] placeholder:tracking-[0.5px] placeholder:font-normal']");
     }
+    private By sortByButton(){
+        return By.xpath("//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb']");
+    }
+    private By newest(){
+        return By.xpath("//*[@id=\"menu-\"]/div[3]/ul/li[1]");
+    }
+    private By oldest(){
+        return By.xpath("//*[@id=\"menu-\"]/div[3]/ul/li[2]");
+    }
 
     @Step
     public void clickDropdown(){
@@ -74,5 +83,21 @@ public class User extends PageObject {
     @Step
     public void validateName(){
         $(search()).isDisplayed();
+    }
+    @Step
+    public void clickSortByButton(){
+        $(sortByButton()).click();
+    }
+    @Step
+    public void showList(){
+        $(sortByButton()).isDisplayed();
+    }
+    @Step
+    public void clickNewest(){
+        $(newest()).click();
+    }
+    @Step
+    public void clickOldest(){
+        $(oldest()).click();
     }
 }
