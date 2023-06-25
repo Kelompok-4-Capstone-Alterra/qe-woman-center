@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="de7f7fb254d30265ef1612e3319e337275d378d27c0924230a847d6a8c297ab2.html">User</a></span>
+                > <span class="truncate-60"><a
+                    href="b870ccacb0dc21f47457bf02a4a0b7c2d8937cff6533b089433c81a51b98fe0c.html">As Admin, I can filter user sort by newest </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 25-06-2023 06:02</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">User </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                As a Admin<br />
+I want to see user data<br />
+So that I see user data
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">Windows
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="117ee740ab2d18c693f376650bd3bf917631cc64ea2809514204d8c7fd4549a0.html">Sort By Newest
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">Chrome, Windows
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">As Admin, I can filter user sort by newest
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="59959dd2953e44cf82950644ef97b7f44e2ae1c5eb39fc1fc4b33334f9f7ca2e.png" title=" Given I am on the landing page" width="1920"/>
+                <img src="17b761db86950adf452c33ac0c5826e70494a35b1202adb5e49aa124d82ed99d.png" title=" When I click get into the dashboard button" width="1920"/>
+                <img src="17b761db86950adf452c33ac0c5826e70494a35b1202adb5e49aa124d82ed99d.png" title=" Click into the dashboard" width="1920"/>
+                <img src="17b761db86950adf452c33ac0c5826e70494a35b1202adb5e49aa124d82ed99d.png" title=" When I click get into the dashboard button (completed)" width="1920"/>
+                <img src="ee761de0174fda31809a61addf9933dc97e22ba6ba3825b4f67b075b31ffaf0e.png" title=" And I enter username" width="1920"/>
+                <img src="ee761de0174fda31809a61addf9933dc97e22ba6ba3825b4f67b075b31ffaf0e.png" title=" Enter username: admin" width="1920"/>
+                <img src="ee761de0174fda31809a61addf9933dc97e22ba6ba3825b4f67b075b31ffaf0e.png" title=" And I enter username (completed)" width="1920"/>
+                <img src="fa6e7d1ce747d8d8f5cee351f9c3b7277262e462f23251f582b63e2e355429f7.png" title=" And I enter password" width="1920"/>
+                <img src="fa6e7d1ce747d8d8f5cee351f9c3b7277262e462f23251f582b63e2e355429f7.png" title=" Enter password: admin" width="1920"/>
+                <img src="b04a5dd1876b579190d5b0cc18907b3adc1b7bc41d148c4d8b79fb630c74b73e.png" title=" Enter password: admin (completed)" width="1920"/>
+                <img src="b04a5dd1876b579190d5b0cc18907b3adc1b7bc41d148c4d8b79fb630c74b73e.png" title=" And I enter password (completed)" width="1920"/>
+                <img src="8fe5bad04a93a7da9e3511717708a99e186c3658c4e11010d9ff19faed6d8531.png" title=" And I click sign in button" width="1920"/>
+                <img src="8fe5bad04a93a7da9e3511717708a99e186c3658c4e11010d9ff19faed6d8531.png" title=" Click sign in button" width="1920"/>
+                <img src="16bb95de85743abc43b90fae4bff184084bf023ff8b99154399e844ff9b992d9.png" title=" Click sign in button" width="1920"/>
+                <img src="c179d7bf8dee180693b03b63cc8aa8fc781947dd954a8f8dfbefe0d08622cc89.png" title=" Click sign in button (completed)" width="1920"/>
+                <img src="c179d7bf8dee180693b03b63cc8aa8fc781947dd954a8f8dfbefe0d08622cc89.png" title=" And I click sign in button (completed)" width="1920"/>
+                <img src="7bd510f6cf07bf9429c8fbbb14a49589a09eedd87da6084ac891841dda171b04.png" title=" Then I am on the dashboard" width="1920"/>
+                <img src="ffda67f0e35ddf4c79966214473deb395c3270dae960ecd1e6392e4beda112e6.png" title=" Given I click user and counselor button" width="1920"/>
+                <img src="49cc1961f2aefbe88647d592337151ae99b8abc3dd402e6e7097a77328bddf3a.png" title=" When I choose users" width="1920"/>
+                <img src="49cc1961f2aefbe88647d592337151ae99b8abc3dd402e6e7097a77328bddf3a.png" title=" Click dropdown" width="1920"/>
+                <img src="b4537d1575b9c12111dbbae32423c651cd780e1eeb2a486ab40e6e18459692a6.png" title=" Click dropdown (completed)" width="1920"/>
+                <img src="b4537d1575b9c12111dbbae32423c651cd780e1eeb2a486ab40e6e18459692a6.png" title=" Choose dropdown users" width="1920"/>
+                <img src="8d17254a5adde24e57ffa8bbc0ba0d0a5d17033a2963eb2aac4c724b67a32bf5.png" title=" Choose dropdown users (completed)" width="1920"/>
+                <img src="8d17254a5adde24e57ffa8bbc0ba0d0a5d17033a2963eb2aac4c724b67a32bf5.png" title=" When I choose users (completed)" width="1920"/>
+                <img src="7f7c5dae6ea269ee2aeb5b90ac0b207cb77b40db2c9befcf61329526a49a7f09.png" title=" And I click sort by box" width="1920"/>
+                <img src="7f7c5dae6ea269ee2aeb5b90ac0b207cb77b40db2c9befcf61329526a49a7f09.png" title=" Click sort by box" width="1920"/>
+                <img src="45c4eec2367aa7bec9792ca2bd245d7a3fe44ae8669218140c89414d83152165.png" title=" Click sort by box (completed)" width="1920"/>
+                <img src="45c4eec2367aa7bec9792ca2bd245d7a3fe44ae8669218140c89414d83152165.png" title=" And I click sort by box (completed)" width="1920"/>
+                <img src="45c4eec2367aa7bec9792ca2bd245d7a3fe44ae8669218140c89414d83152165.png" title=" And I choose newest" width="1920"/>
+                <img src="45c4eec2367aa7bec9792ca2bd245d7a3fe44ae8669218140c89414d83152165.png" title=" Click newest" width="1920"/>
+                <img src="45c4eec2367aa7bec9792ca2bd245d7a3fe44ae8669218140c89414d83152165.png" title=" Then I can filter user sort by newest: <span class='success-color'>SUCCESS</span>" width="1920"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.6.21</span>
+</div>
+</body>
+</html>

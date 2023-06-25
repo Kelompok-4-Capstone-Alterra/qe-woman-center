@@ -1,0 +1,9 @@
+starter\pages\LogoutPage.class
+starter\stepdefinitions\LoginSteps.class
+starter\CucumberTestSuite.class
+starter\pages\DashboardPage.class
+starter\pages\LandingPage.class
+starter\pages\LoginPage.class
+starter\stepdefinitions\UserSteps.class
+starter\stepdefinitions\LogoutSteps.class
+starter\pages\User.class
