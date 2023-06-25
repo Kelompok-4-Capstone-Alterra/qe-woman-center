@@ -46,11 +46,11 @@ Feature: Schedule
     When I send POST HTTP Request with invalid id
     Then I failed post counselor schedule and response code 400
 
-  @FailedPostScheduleInvalidBodyParameter
-  Scenario: Post - As admin I failed to create counselor schedule with invalid body parameter
+  @FailedPostScheduleWithScheduleAlreadyExist
+  Scenario: Post - As admin I failed to create counselor schedule with schedule alredy exist
     Given I set post counselor schedule endpoint
-    When I send POST HTTP Request with invalid body parameter
-    Then I failed post counselor schedule and response code 400
+    When I send POST HTTP Request with schedule already exist
+    Then I failed post counselor schedule and response code 409
 
   @FailedPostScheduleEmptyDates
   Scenario: Post - As admin I failed to create counselor schedule with empty dates

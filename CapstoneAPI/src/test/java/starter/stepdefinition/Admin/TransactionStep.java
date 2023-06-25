@@ -27,16 +27,20 @@ public class TransactionStep {
     public void failGetTrans401(){transaction.failGetTrans401();}
     @Given("I set PUT link endpoint")
     public void setPutLinkEnd(){transaction.setPutLinkEnd();}
-    @When("I send PUT link Request")
-    public void sendPutLinkReq(){transaction.sendPutLinkReq();}
+    @When("I send PUT link Request with link telegram")
+    public void sendPutLinkReqTelegram(){transaction.sendPutLinkReq();}
+    @When("I send PUT link Request with link zoom")
+    public void sendPutLinkReqZoom(){transaction.sendPutLinkReqZoom();}
     @Then("I success put link and response code 200")
     public void successPutLink(){transaction.successPutLink();}
     @When("I send PUT link Request with invalid transaction id")
     public void sendPutReqInvTransactionId(){transaction.sendPutReqInvTransactionId();}
+    @Then("I fail put link and response invalid transaction id format")
+    public void invalidFormat(){transaction.invalidFormat();}
     @Then("I fail put link and response code 400")
     public void failPutLink400(){transaction.failPutLink400();}
-    @When("I send PUT link Request with link already sent")
-    public void sendPutLinkAlreadySent(){transaction.sendPutLinkAlreadySent();}
+    @When("I send PUT link Request with invalid link")
+    public void sendPutInvalidLink(){transaction.sendInvalidLink();}
     @When("I send PUT link Request without token")
     public void sendPutReqWithoutToken(){transaction.sendPutReqWithoutToken();}
     @Then("I fail put link and response code 401")
@@ -49,7 +53,7 @@ public class TransactionStep {
     public void successPutCancel(){transaction.successPutCancel();}
     @When("I send PUT cancel Request with invalid transaction id")
     public void sendPutCancelInvTransactionId(){transaction.sendPutCancelInvTransactionId();}
-    @Then("I fail put cancel and response code 500")
+    @Then("I fail put cancel and response code 400")
     public void failPutCancel500(){transaction.failPutCancel500();}
     @When("I send PUT cancel Request without token")
     public void senPutCancelReq(){transaction.senPutCancelReq();}

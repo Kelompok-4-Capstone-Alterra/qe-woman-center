@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Transaction {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODcxNjYwMTZ9.JF9ZSJcND_hyzRPar5UqXPUHVPwHnD5UHJP6KZD5RUc";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc5MTk5MDB9.VpXZrwefbDlAHKAHC8cxCb10IW6UNK_DO54Ab0kIUWQ";
     @Step("I set Get all transaction endpoint")
     public String setGetTransaction(){return url+"/admin/transactions";}
     @Step("I send GET all transaction Request")
@@ -43,11 +43,21 @@ public class Transaction {
     public void failGetTrans401(){restAssuredThat(response -> response.statusCode(401));}
     @Step("I set PUT link endpoint")
     public String setPutLinkEnd(){return url+"/admin/transactions/link";}
-    @Step("I send PUT link Request")
+    @Step("I send PUT link Request with link telegram")
     public void sendPutLinkReq(){
         JSONObject requestBody = new JSONObject();
-        requestBody.put("transaction_id", "768c4614-0de4-11ee-9061-0242c0a88003");
-        requestBody.put("link", "https://consultationmentalhealthbatch1");
+        requestBody.put("transaction_id", "d2ad988e-12ab-11ee-9f83-0242ac160003");
+        requestBody.put("link", "https://t.me/+J2TWk74XVccxN2Nl");
+
+        SerenityRest.given().relaxedHTTPSValidation().contentType("application/json").body(requestBody).auth().oauth2(token)
+                .when()
+                .put(setPutLinkEnd());
+    }
+    @Step("I send PUT link Request with link zoom")
+    public void sendPutLinkReqZoom(){
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("transaction_id", "d97433e6-1303-11ee-a828-0242ac170003");
+        requestBody.put("link", "https://us05web.zoom.us/j/83221812995?pwd=Y0JZcXQ2VzhtUzBnMkloQkNDckRpUT09");
 
         SerenityRest.given().relaxedHTTPSValidation().contentType("application/json").body(requestBody).auth().oauth2(token)
                 .when()
@@ -65,13 +75,18 @@ public class Transaction {
                 .when()
                 .put(setPutLinkEnd());
     }
-    @Step("I fail put link and response code 400")
-    public void failPutLink400(){
-        restAssuredThat(response -> response.body("meta.message", equalTo("transaction not found/link already sent")));
+    @Step("I fail put link and response invalid transaction id format")
+    public void invalidFormat(){
+        restAssuredThat(response -> response.body("meta.message", equalTo("invalid transaction id format")));
         restAssuredThat(response -> response.body("meta.status", equalTo(400)));
     }
-    @Step("I send PUT link Request with link already sent")
-    public void sendPutLinkAlreadySent(){
+    @Step("I fail put link and response code 400")
+    public void failPutLink400(){
+        restAssuredThat(response -> response.body("meta.message", equalTo("invalid url host, use telegram or zoom link")));
+        restAssuredThat(response -> response.body("meta.status", equalTo(400)));
+    }
+    @Step("I send PUT link Request with invalid link")
+    public void sendInvalidLink(){
         JSONObject requestBody = new JSONObject();
         requestBody.put("transaction_id", "768c4614-0de4-11ee-9061-0242c0a88003");
         requestBody.put("link", "https://consultationmentalhealthbatch1");
@@ -116,8 +131,8 @@ public class Transaction {
     }
     @Step("I fail put cancel and response code 500")
     public void failPutCancel500(){
-        restAssuredThat(response -> response.body("meta.message", equalTo("record not found")));
-        restAssuredThat(response -> response.body("meta.status", equalTo(500)));
+        restAssuredThat(response -> response.body("meta.message", equalTo("invalid transaction id format")));
+        restAssuredThat(response -> response.body("meta.status", equalTo(400)));
     }
     @Step("I send PUT cancel Request without token")
     public void senPutCancelReq(){

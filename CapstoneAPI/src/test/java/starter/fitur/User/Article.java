@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Article {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3ODMxOTQxfQ.erSbQWX8QiriwMIaYzniLOqXCq6tdK1F0u05HLilRC8";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3ODY3ODc1fQ.UtrYHk4vNalzLCFK_308Os7K6WXdir2lMSpHfNwWssM";
 
     @Step("I set Get articles non login endpoint")
     public String setGetArticleEndpoint() {
@@ -58,7 +58,7 @@ public class Article {
 
         SerenityRest.given().relaxedHTTPSValidation().contentType("application/json").body(requestBody).auth().oauth2(token)
                 .baseUri(setCreateComment())
-                .pathParam("id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
+                .pathParam("id", "26625c52-127c-11ee-a995-0242ac130003")
                 .when()
                 .post("/{id}/comments");
     }
@@ -90,14 +90,14 @@ public class Article {
 
         SerenityRest.given().relaxedHTTPSValidation().contentType("application/json").body(requestBody).auth().oauth2(token)
                 .baseUri(setCreateComment())
-                .pathParam("id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
+                .pathParam("id", "26625c52-127c-11ee-a995-0242ac130003")
                 .when()
                 .post("/{id}/comments");
     }
     @Step("I failed create comment and message all field are required")
     public void messageAllFieldsAreRequired(){
-            restAssuredThat(response -> response.body("meta.message", equalTo("all fields are required")));
-            restAssuredThat(response -> response.body("meta.status", equalTo(400)));
+        restAssuredThat(response -> response.body("meta.message", equalTo("all fields are required")));
+        restAssuredThat(response -> response.body("meta.status", equalTo(400)));
     }
     @Step("I send POST comment Request without token")
     public void sendReqWithoutToken(){
@@ -106,7 +106,7 @@ public class Article {
 
         SerenityRest.given().relaxedHTTPSValidation().contentType("application/json").body(requestBody)
                 .baseUri(setCreateComment())
-                .pathParam("id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
+                .pathParam("id", "26625c52-127c-11ee-a995-0242ac130003")
                 .when()
                 .post("/{id}/comments");
     }
@@ -121,7 +121,7 @@ public class Article {
     public void getAllCommentReq(){
         SerenityRest.given().relaxedHTTPSValidation().auth().oauth2(token)
                 .baseUri(setAllCommentEnd())
-                .pathParam("id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
+                .pathParam("id", "26625c52-127c-11ee-a995-0242ac130003")
                 .when()
                 .get("/{id}/comments");
     }
@@ -147,7 +147,7 @@ public class Article {
     public void senReqWithoutToken(){
         SerenityRest.given().relaxedHTTPSValidation()
                 .baseUri(setAllCommentEnd())
-                .pathParam("id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
+                .pathParam("id", "26625c52-127c-11ee-a995-0242ac130003")
                 .when()
                 .get("/{id}/comments");
     }
@@ -162,8 +162,8 @@ public class Article {
     public void sendDelReq(){
         SerenityRest.given().relaxedHTTPSValidation().auth().oauth2(token)
                 .baseUri(setDeleteComEnd())
-                .pathParam("article_id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
-                .pathParam("comment_id", "4a67ce5f-0f1e-11ee-84cd-0242c0a8e003")
+                .pathParam("article_id", "26625c52-127c-11ee-a995-0242ac130003")
+                .pathParam("comment_id", "5c796c71-128d-11ee-9f83-0242ac160003")
                 .when()
                 .delete("/{article_id}/comments/{comment_id}");
     }
@@ -176,7 +176,7 @@ public class Article {
         SerenityRest.given().relaxedHTTPSValidation().auth().oauth2(token)
                 .baseUri(setDeleteComEnd())
                 .pathParam("article_id", "7c5c2f6e")
-                .pathParam("comment_id", "4a67ce5f-0f1e-11ee-84cd-0242c0a8e003")
+                .pathParam("comment_id", "5c796c71-128d-11ee-9f83-0242ac160003")
                 .when()
                 .delete("/{article_id}/comments/{comment_id}");
     }
@@ -188,7 +188,7 @@ public class Article {
     public void sendDelReqInvComId(){
         SerenityRest.given().relaxedHTTPSValidation().auth().oauth2(token)
                 .baseUri(setDeleteComEnd())
-                .pathParam("article_id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
+                .pathParam("article_id", "26625c52-127c-11ee-a995-0242ac130003")
                 .pathParam("comment_id", "4a67ce5f")
                 .when()
                 .delete("/{article_id}/comments/{comment_id}");
@@ -197,8 +197,8 @@ public class Article {
     public void sendDelComWithoutToken(){
         SerenityRest.given().relaxedHTTPSValidation()
                 .baseUri(setDeleteComEnd())
-                .pathParam("article_id", "7c5c2f6e-0e8f-11ee-87be-0242c0a8d003")
-                .pathParam("comment_id", "4a67ce5f-0f1e-11ee-84cd-0242c0a8e003")
+                .pathParam("article_id", "26625c52-127c-11ee-a995-0242ac130003")
+                .pathParam("comment_id", "5c796c71-128d-11ee-9f83-0242ac160003")
                 .when()
                 .delete("/{article_id}/comments/{comment_id}");
     }
@@ -206,35 +206,5 @@ public class Article {
     public void failDel401(){
         restAssuredThat(response -> response.body("meta.message", equalTo("invalid token")));
         restAssuredThat(response -> response.body("meta.status", equalTo(401)));
-    }
-
-    private String articleUUID;
-
-    // read article
-    public String setUserGetArticleEndpoint(String uuid) {
-        articleUUID = uuid;
-        return url + "/users/articles/" + uuid;
-    }
-
-    public void sendUserGetArticleRequest() {
-        SerenityRest.given().relaxedHTTPSValidation()
-                .header("Content-Type", "application/json")
-                .auth().oauth2(token)
-                .get(setUserGetArticleEndpoint(articleUUID));
-    }
-
-    public void verifyUserArticleResponseCode(int statusCode) {
-        restAssuredThat(response -> response.statusCode(statusCode));
-    }
-
-    public String setNewUserGetArticleEndpoint(String uuid) {
-        articleUUID = uuid;
-        return url + "/users/public/articles/" + uuid;
-    }
-
-    public void sendNewUserGetArticleRequest() {
-        SerenityRest.given().relaxedHTTPSValidation()
-                .header("Content-Type", "application/json")
-                .get(setNewUserGetArticleEndpoint(articleUUID));
     }
 }

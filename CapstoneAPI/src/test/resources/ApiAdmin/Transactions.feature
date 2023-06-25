@@ -22,22 +22,28 @@ Feature: Transactions
     When I send GET all transaction Request without token
     Then I fail get all transaction and response code 401
 
-  @SuccessPutLink
-  Scenario: As admin I have be able to put link
+  @SuccessPutLinkTelegram
+  Scenario: As admin I have be able to put link telegram
     Given I set PUT link endpoint
-    When I send PUT link Request
+    When I send PUT link Request with link telegram
+    Then I success put link and response code 200
+
+  @SuccessPutLinkZoom
+  Scenario: As admin I have be able to put link zoom
+    Given I set PUT link endpoint
+    When I send PUT link Request with link zoom
     Then I success put link and response code 200
 
   @FailPutLinkInvTransactionId
   Scenario: As admin I failed to put link with invalid transaction id
     Given I set PUT link endpoint
     When I send PUT link Request with invalid transaction id
-    Then I fail put link and response code 400
+    Then I fail put link and response invalid transaction id format
 
-  @FailPutLinkWithLinkAlreadySent
-  Scenario: As admin I failed to put link with link already sent
+  @FailPutLinkWithInvalidLink
+  Scenario: As admin I failed to put link with invalid link
     Given I set PUT link endpoint
-    When I send PUT link Request with link already sent
+    When I send PUT link Request with invalid link
     Then I fail put link and response code 400
 
   @FailPutLinkWithoutToken
@@ -53,13 +59,13 @@ Feature: Transactions
     Then I success put cancel and response code 200
 
   @FailPutCancelInvalidTransactionId
-  Scenario: As admin I failed to put link with invalid transaction id
+  Scenario: As admin I failed to put cancel with invalid transaction id
     Given I set PUT cancel endpoint
     When I send PUT cancel Request with invalid transaction id
-    Then I fail put cancel and response code 500
+    Then I fail put cancel and response code 400
 
   @FailPutCancelWithoutToken
-  Scenario: As admin I failed to put link without token
+  Scenario: As admin I failed to put cancel without token
     Given I set PUT cancel endpoint
     When I send PUT cancel Request without token
     Then I fail put cancel and response code 401
