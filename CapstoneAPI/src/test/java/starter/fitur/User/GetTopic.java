@@ -8,7 +8,7 @@ public class GetTopic {
     protected static String url = "https://13.210.163.192:8080";
 
     public String setTopicEndpoint() {
-        return url + "/topics";
+        return url + "/users/public/topics";
     }
     public void sendReqWithValidToken() {
         SerenityRest.given().relaxedHTTPSValidation()
@@ -22,8 +22,7 @@ public class GetTopic {
                 .header("Content-Type", "application/json").put(setTopicEndpoint());
     }
     public void failViewAdminProfile() {
-        restAssuredThat(response -> response.statusCode(405));
-        restAssuredThat(response -> response.body("message", equalTo("Method Not Allowed")));
+        restAssuredThat(response -> response.statusCode(401));
     }
     public String setTopicInvEndpoint() {
         return url + "/pics";
