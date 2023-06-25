@@ -176,9 +176,8 @@ public class ReadList {
 
     @Step("I send HTTP GET reading list request with valid endpoint")
     public void sendReqReadingList() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc1OTgzNTd9.WKE_S8mpsU1mGuHWdG9Nci4DaoSStNho3-1rzSOlUzg";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetReadingListByID())
                 .pathParams("id", "478f59d0-c089-4ba7-858f-bba0f1e9d2f1")
                 .when()
@@ -193,9 +192,8 @@ public class ReadList {
 
     @Step("I send HTTP GET reading list request with invalid endpoint")
     public void sendReqReadingListInvalidEndpoint() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc1OTgzNTd9.WKE_S8mpsU1mGuHWdG9Nci4DaoSStNho3-1rzSOlUzg";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetReadingListInvalidEndpoint())
                 .pathParams("id", "478f59d0-c089-4ba7-858f-bba0f1e9d2f1")
                 .when()
@@ -210,9 +208,8 @@ public class ReadList {
 
     @Step("I send HTTP GET reading list request with invalid ID")
     public void sendReqReadingListInvalidID() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc1OTgzNTd9.WKE_S8mpsU1mGuHWdG9Nci4DaoSStNho3-1rzSOlUzg";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetReadingListInvalidID())
                 .pathParams("id", "123f59d0-c089-4ba7-858f-bba0f1e9d2f1")
                 .when()
@@ -227,9 +224,8 @@ public class ReadList {
 
     @Step("I send HTTP GET reading list request with invalid token")
     public void sendReqReadingListInvalidToken() {
-        String AuthToken = "eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc1OTgzNTd9.WKE_S8mpsU1mGuHWdG9Nci4DaoSStNho3-1rzSOlUzg";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(invToken).relaxedHTTPSValidation()
                 .baseUri(setGetReadingListInvalidToken())
                 .pathParams("id", "478f59d0-c089-4ba7-858f-bba0f1e9d2f1")
                 .when()
@@ -267,7 +263,7 @@ public class ReadList {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc1OTgzNTd9.WKE_S8mpsU1mGuHWdG9Nci4DaoSStNho3-1rzSOlUzg")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .put(setPutReadingList());
 
     }
@@ -281,7 +277,7 @@ public class ReadList {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc1OTgzNTd9.WKE_S8mpsU1mGuHWdG9Nci4DaoSStNho3-1rzSOlUzg")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .put(setPutReadingListInvalidEndpoint());
 
     }
@@ -295,7 +291,7 @@ public class ReadList {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc1OTgzNTd9.WKE_S8mpsU1mGuHWdG9Nci4DaoSStNho3-1rzSOlUzg")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .put(setPutReadingListInvalidID());
 
     }
@@ -336,7 +332,7 @@ public class ReadList {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc2Mjc3Mjl9.bwjLyaTw2B4zlP4JwgI1LI0jHFInMJ37oUAotdMI-Rs")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .delete(setDeleteReadingList());
 
     }
@@ -350,7 +346,7 @@ public class ReadList {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc2Mjc3Mjl9.bwjLyaTw2B4zlP4JwgI1LI0jHFInMJ37oUAotdMI-Rs")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .delete(setDeleteReadingListInvalidEndpoint());
 
     }
@@ -364,7 +360,7 @@ public class ReadList {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiZTM3YmM0LTEwMTQtMTFlZS1hNGYxLTAyNDJhYzE4MDAwMyIsImVtYWlsIjoic2hpbnRhZGV3aWt1cm5pYXdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzaGludGExIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODc2Mjc3Mjl9.bwjLyaTw2B4zlP4JwgI1LI0jHFInMJ37oUAotdMI-Rs")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTgwNjYwfQ.uc_rrgBA5Qx8eCcUS0JG_66jm3NJmx_BoavbE2rtb-8")
                 .delete(setDeleteReadingListInvalidID());
 
     }
