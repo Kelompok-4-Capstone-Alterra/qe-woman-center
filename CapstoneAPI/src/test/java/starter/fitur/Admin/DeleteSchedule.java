@@ -32,6 +32,7 @@ public class DeleteSchedule {
     }
     public void receivedDeleteResponseCode(){
 //        restAssuredThat(response -> response.statusCode(200));
+//        Diganti response code karena schedule telah berhasil dihapus
         restAssuredThat(response -> response.statusCode(404));
     }
 
