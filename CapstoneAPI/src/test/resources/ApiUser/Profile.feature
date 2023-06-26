@@ -57,3 +57,9 @@ Feature: Profile
     Given I set PUT update password endpoint
     When I send PUT update password HTTP Request with current password empty value
     Then I fail update password response code 500
+
+  @FailUpdatePasswordWithSpaceOnly
+  Scenario: As user I failed to update password with space only
+    Given I set PUT update password endpoint
+    When I send PUT update password HTTP Request with space only
+    Then I fail update password response code is 400

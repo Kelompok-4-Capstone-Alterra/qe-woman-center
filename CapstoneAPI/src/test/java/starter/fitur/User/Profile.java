@@ -141,4 +141,16 @@ public class Profile {
         restAssuredThat(response -> response.body("meta.message", equalTo("all fields are required")));
         restAssuredThat(response -> response.body("meta.status", equalTo(400)));
     }
+    @Step("I send PUT update password HTTP Request with space only")
+    public void sendReqSpaceOnly(){
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("current_password", " ");
+        requestBody.put("new_password", " ");
+
+        SerenityRest.given().relaxedHTTPSValidation().contentType("application/json").body(requestBody).auth().oauth2(token)
+                .when()
+                .put(setUpdatePasswordEnd());
+    }
+    @Step("I fail update password response code is 400")
+    public void resCode400(){restAssuredThat(response -> response.body("meta.status", equalTo(400)));}
 }

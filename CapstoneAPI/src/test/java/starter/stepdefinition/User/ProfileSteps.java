@@ -51,4 +51,8 @@ public class ProfileSteps {
     public void sendReqEmptyValue(){profile.sendReqEmptyValue();}
     @Then("I fail update password response code 500")
     public void failUpdatePassword500(){profile.failUpdatePassword500();}
+    @When("I send PUT update password HTTP Request with space only")
+    public void sendReqSpaceOnly(){profile.sendReqSpaceOnly();}
+    @Then("I fail update password response code is 400")
+    public void resCode400(){profile.resCode400();}
 }
