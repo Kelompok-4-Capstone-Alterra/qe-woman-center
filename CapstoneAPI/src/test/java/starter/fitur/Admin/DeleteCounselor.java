@@ -26,6 +26,7 @@ public class DeleteCounselor {
     }
     public void receivedDeleteCounselorResponseCode() {
 //        restAssuredThat(response -> response.statusCode(200));
+//        DIganti response status code karena id counselor telah berhasil dihapus
         restAssuredThat(response -> response.statusCode(400));
     }
 
