@@ -11,7 +11,7 @@ public class CounselingPage extends PageObject {
     private By counselingSchedulePage(){return By.xpath("//h2[@class='text-2xl text-white']");}
     private By addSchedule(){return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/div/div[1]/button");}
     private By chooseCounselor(){return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/div/div[1]/div[2]/div/div/form/div[1]/div");}
-    private By counselor(){return By.xpath("//li[@class='px-8 py-4 h-[44px] flex items-center hover:bg-primaryHover hover:text-white'][2]");}
+    private By counselor(){return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/div/div[1]/div[2]/div/div/form/div[1]/ul/li[1]");}
     private By selectDate(){return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/div/div[1]/div[2]/div/div/form/div[2]/div/div/div/div/table/tbody/tr[5]/td[4]/button");}
     private By selectTime(){return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/div/div[1]/div[2]/div/div/form/div[3]/div");}
     private By time(){return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/div/div[1]/div[2]/div/div/form/div[3]/ul/li[2]");}

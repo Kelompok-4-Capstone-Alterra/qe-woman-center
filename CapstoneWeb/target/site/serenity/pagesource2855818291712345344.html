@@ -1,0 +1,385 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="en"&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta charset="UTF-8"&gt; <br/>
+  &lt;link rel="icon" type="image/svg+xml" href="/vite.svg"&gt; <br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; <br/>
+  &lt;title&gt;Women Center&lt;/title&gt; <br/>
+  &lt;script type="module" crossorigin="" src="/assets/index-2d52fe82.js"&gt;&lt;/script&gt; <br/>
+  &lt;link rel="stylesheet" href="/assets/index-5056f935.css"&gt; <br/>
+  &lt;style data-emotion="css-global" data-s=""&gt;&lt;/style&gt;<br/>
+  &lt;style data-emotion="css" data-s=""&gt;&lt;/style&gt;<br/>
+ &lt;/head&gt; <br/>
+ &lt;body&gt; <br/>
+  &lt;div id="root"&gt;<br/>
+   &lt;div class="relative flex"&gt;<br/>
+    &lt;div class="h-full overflow-hidden shadow-right flex flex-col justify-start py-8 w-40 fixed left-0 z-10 bg-white transition-all "&gt;<br/>
+     &lt;div class="mb-10 flex items-center h-7 justify-center"&gt;<br/>
+      &lt;button&gt;<br/>
+       &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="ChevronRightIcon"&gt;<br/>
+        &lt;path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"&gt;&lt;/path&gt;<br/>
+       &lt;/svg&gt;&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="flex flex-col items-center gap-6 mb-6 box-content w-full overflow-y-auto no-scrollbar"&gt;<br/>
+      &lt;div class="flex items-center text-center flex-col justify-center gap-1"&gt;<br/>
+       &lt;img src="data:image/png;base64,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" alt=""&gt;<br/>
+       &lt;p class="text-sm"&gt;Admin&lt;/p&gt;<br/>
+      &lt;/div&gt;&lt;a aria-current="page" class="text-primaryMain" href="/dashboard"&gt;<br/>
+       &lt;div class="flex items-center text-center flex-col justify-center gap-1"&gt;<br/>
+        &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="DashboardIcon"&gt;<br/>
+         &lt;path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"&gt;&lt;/path&gt;<br/>
+        &lt;/svg&gt;<br/>
+        &lt;p class="text-sm"&gt;Dashboard&lt;/p&gt;<br/>
+       &lt;/div&gt;&lt;/a&gt;&lt;a class="hover:text-primaryMain" href="/user-counselor"&gt;<br/>
+       &lt;div class="flex items-center text-center flex-col justify-center gap-1"&gt;<br/>
+        &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="PeopleIcon"&gt;<br/>
+         &lt;path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"&gt;&lt;/path&gt;<br/>
+        &lt;/svg&gt;<br/>
+        &lt;p class="text-sm"&gt;User &amp; Counselor&lt;/p&gt;<br/>
+       &lt;/div&gt;&lt;/a&gt;&lt;a class="hover:text-primaryMain" href="/counseling"&gt;<br/>
+       &lt;div class="flex items-center text-center flex-col justify-center gap-1"&gt;<br/>
+        &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="ListAltIcon"&gt;<br/>
+         &lt;path d="M19 5v14H5V5h14m1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9zM11 7h6v2h-6V7zm0 4h6v2h-6v-2zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"&gt;&lt;/path&gt;<br/>
+        &lt;/svg&gt;<br/>
+        &lt;p class="text-sm"&gt;Counseling&lt;/p&gt;<br/>
+       &lt;/div&gt;&lt;/a&gt;&lt;a class="hover:text-primaryMain" href="/career"&gt;<br/>
+       &lt;div class="flex items-center text-center flex-col justify-center gap-1"&gt;<br/>
+        &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="WorkIcon"&gt;<br/>
+         &lt;path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"&gt;&lt;/path&gt;<br/>
+        &lt;/svg&gt;<br/>
+        &lt;p class="text-sm"&gt;Career&lt;/p&gt;<br/>
+       &lt;/div&gt;&lt;/a&gt;&lt;a class="hover:text-primaryMain" href="/article-forum"&gt;<br/>
+       &lt;div class="flex items-center text-center flex-col justify-center gap-1"&gt;<br/>
+        &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="ArticleIcon"&gt;<br/>
+         &lt;path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"&gt;&lt;/path&gt;<br/>
+        &lt;/svg&gt;<br/>
+        &lt;p class="text-sm"&gt;Article &amp; Forum&lt;/p&gt;<br/>
+       &lt;/div&gt;&lt;/a&gt;&lt;a class="hover:text-primaryMain" href="/report"&gt;<br/>
+       &lt;div class="flex items-center text-center flex-col justify-center gap-1"&gt;<br/>
+        &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="FolderIcon"&gt;<br/>
+         &lt;path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"&gt;&lt;/path&gt;<br/>
+        &lt;/svg&gt;<br/>
+        &lt;p class="text-sm"&gt;Report&lt;/p&gt;<br/>
+       &lt;/div&gt;&lt;/a&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="flex items-center text-center mt-auto hover:text-primaryMain cursor-pointer flex-col justify-center gap-1"&gt;<br/>
+      &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="ExitToAppIcon"&gt;<br/>
+       &lt;path d="M10.09 15.59 11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"&gt;&lt;/path&gt;<br/>
+      &lt;/svg&gt;<br/>
+      &lt;p class="text-sm"&gt;Logout&lt;/p&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="absolute right-0 left-40"&gt;<br/>
+     &lt;div class="flex flex-col justify-center h-24 bg-primaryPressed ps-12 py-14 -z-10 gap-1"&gt;<br/>
+      &lt;h1 class="text-2xl text-white"&gt;Dashboard&lt;/h1&gt;<br/>
+      &lt;h2 class="text-white pt-1"&gt;Hello, Admin!&lt;/h2&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="flex gap-3 ps-12 py-4 border-b"&gt;<br/>
+      &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium text-primaryMain css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="PersonRoundedIcon"&gt;<br/>
+       &lt;path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"&gt;&lt;/path&gt;<br/>
+      &lt;/svg&gt;<br/>
+      &lt;p class="text-primaryMain font-semibold"&gt;Admin&lt;/p&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="p-9"&gt;<br/>
+      &lt;div class="flex gap-5 mb-10"&gt;<br/>
+       &lt;div class="card w-[372px] h-[176px] rounded-xl bg-white shadow-md"&gt;<br/>
+        &lt;div class="text-2xl font-semibold pl-10 pt-10"&gt;<br/>
+         Total Users<br/>
+         &lt;div class="float-right mr-[53px] text-primaryPressed text-2xl"&gt;<br/>
+          &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="GroupsIcon" style="font-size: 45px;"&gt;<br/>
+           &lt;path d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"&gt;&lt;/path&gt;<br/>
+          &lt;/svg&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="text-2xl font-semibold pl-10 pt-[20px]"&gt;<br/>
+          14 <br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="card w-[372px] h-[176px] rounded-xl bg-white shadow-md"&gt;<br/>
+        &lt;div class="text-2xl font-semibold pl-10 pt-10"&gt;<br/>
+         Total Counselors<br/>
+         &lt;div class="float-right mr-[53px] text-primaryPressed text-2xl"&gt;<br/>
+          &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="GroupsIcon" style="font-size: 45px;"&gt;<br/>
+           &lt;path d="M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V18H6v-1.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91zM4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V18h4.5v-1.61c0-.83.23-1.61.63-2.29zM20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H24v-1.57zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"&gt;&lt;/path&gt;<br/>
+          &lt;/svg&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="text-2xl font-semibold pl-10 pt-[20px]"&gt;<br/>
+          32 <br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="card w-[372px] h-[176px] rounded-xl bg-white shadow-md"&gt;<br/>
+        &lt;div class="text-2xl font-semibold pl-10 pt-10"&gt;<br/>
+         Total Transactions<br/>
+         &lt;div class="float-right mr-[53px] text-primaryPressed text-2xl"&gt;<br/>
+          &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="ShoppingBagRoundedIcon" style="font-size: 45px;"&gt;<br/>
+           &lt;path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 4c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2zm2-6c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm4 6c0 .55-.45 1-1 1s-1-.45-1-1V8h2v2z"&gt;&lt;/path&gt;<br/>
+          &lt;/svg&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="text-2xl font-semibold pl-10 pt-[20px]"&gt;<br/>
+          156 <br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="max-w-full py-4"&gt;<br/>
+       &lt;div class="flex items-center justify-between px-8 py-4 bg-primaryPressed"&gt;<br/>
+        &lt;h2 class="text-2xl text-white"&gt;Recent Counseling Transaction&lt;/h2&gt;<br/>
+        &lt;div class="h-14 w-[567px] relative rounded-[3px] overflow-hidden"&gt;<br/>
+         &lt;input class="w-full py-4 ps-16 text-[16px] tracking-[0.5px] placeholder:text-[16px] placeholder:tracking-[0.5px] placeholder:font-normal" type="text" name="" id="" placeholder="Search what you need here..."&gt;<br/>
+         &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge absolute z-[1] left-4 top-2 css-6flbmm" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="SearchIcon"&gt;<br/>
+          &lt;path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="flex justify-end items-center py-4 gap-4"&gt;<br/>
+        &lt;span class="text-base"&gt;Sort By&lt;/span&gt;<br/>
+        &lt;div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-13gt8wk"&gt;<br/>
+         &lt;div tabindex="0" role="button" aria-expanded="false" aria-haspopup="listbox" class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb"&gt;<br/>
+          Newest<br/>
+         &lt;/div&gt;<br/>
+         &lt;input aria-invalid="false" aria-hidden="true" tabindex="-1" class="MuiSelect-nativeInput css-1k3x8v3" value="newest"&gt;<br/>
+         &lt;svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1636szt" focusable="false" aria-hidden="true" viewbox="0 0 24 24" data-testid="ArrowDropDownIcon"&gt;<br/>
+          &lt;path d="M7 10l5 5 5-5z"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;<br/>
+         &lt;fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-igs3ac"&gt;<br/>
+          &lt;legend class="css-ihdtdm"&gt;&lt;span class="notranslate"&gt;​&lt;/span&gt;&lt;/legend&gt;<br/>
+         &lt;/fieldset&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="overflow-auto border border-primaryBorder p-4"&gt;<br/>
+        &lt;table class=" w-[140%]  text-center"&gt;<br/>
+         &lt;thead&gt;<br/>
+          &lt;tr class="h-[56px] border-b-secondaryMain border-b"&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Date&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Transaction id&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;User id&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Counselor id&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Counselor's Name&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Method&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Topic&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Time&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Price&lt;/th&gt;<br/>
+           &lt;th class="w-[130px]"&gt;Status&lt;/th&gt;<br/>
+          &lt;/tr&gt;<br/>
+         &lt;/thead&gt;<br/>
+         &lt;tbody&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;9b5ca7eb-13f3-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;1a99970b-134e-11ee-aaf1-0242ac180003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor R&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;09:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;129.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      bg-secondaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;pending&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;541c131f-13f3-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;1a99970b-134e-11ee-aaf1-0242ac180003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor R&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;08:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;129.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      bg-primaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;ongoing&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;f4328515-13f2-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;98531238-12a1-11ee-9f83-0242ac160003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor J&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;12:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;120.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      bg-primaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;ongoing&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;12d76799-13f2-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;1a99970b-134e-11ee-aaf1-0242ac180003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor R&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;12:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;129.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      bg-primaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;ongoing&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;162b59f2-13f0-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;a5fb78b0-110c-11ee-a393-0242c0a84003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;a772dcce-12a9-11ee-9f83-0242ac160003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;gabisa dihapus juga gambarnya gamau ke get&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self harming behaviour&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;12:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;128.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      bg-dangerMain<br/>
+      <br/>
+      <br/>
+      "&gt;canceled&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;329b9278-13ed-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;3e240b3b-128f-11ee-9f83-0242ac160003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor G&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;12:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;270.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      bg-secondaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;pending&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;263b462c-13ed-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;3e240b3b-128f-11ee-9f83-0242ac160003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor G&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;08:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;270.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      bg-secondaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;pending&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;ee9a1fce-13ea-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;98531238-12a1-11ee-9f83-0242ac160003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor J&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;09:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;120.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      bg-primaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;ongoing&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;70342735-13ea-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;98531238-12a1-11ee-9f83-0242ac160003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor J&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;08:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;120.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      bg-primaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;ongoing&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+          &lt;tr class="h-[64px]"&gt;<br/>
+           &lt;td class="w-[130px]"&gt;2023-06-26&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;8f554aab-13e9-11ee-97f3-0242ac1d0003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;b0c7a5f8-0e9a-11ee-84cd-0242c0a8e003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;98531238-12a1-11ee-9f83-0242ac160003&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;counselor J&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;chat&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;self-development&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;12:00:00&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;Rp&nbsp;120.000&lt;/td&gt;<br/>
+           &lt;td class="w-[130px]"&gt;&lt;button class="max-w-[130px] w-[90%] text-xs min-h-[45px] text-white capitalize text-center mx-auto rounded py-3 cursor-default outline-none border-none<br/>
+      bg-primaryMain<br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      "&gt;ongoing&lt;/button&gt;&lt;/td&gt;<br/>
+          &lt;/tr&gt;<br/>
+         &lt;/tbody&gt;<br/>
+        &lt;/table&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt; <br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

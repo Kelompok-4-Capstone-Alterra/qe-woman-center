@@ -10,7 +10,7 @@ public class CounselorPage extends PageObject {
     private By viewCounselor(){return By.xpath("//h2[@class='text-xl font-bold mb-4 mt-[8px]']");}
     private By closeButton(){return By.xpath("//button[@class='box-border min-h-[45px] bg-white border-2 border-primaryMain hover:bg-[#954E80] hover:text-white hover:border-[#954E80] active:bg-[#913175] py-3 px-3 rounded-[3px] text-primaryMain text-xs transition h-fit w-full px-3 py-3 flex items-center justify-center']");}
     private By counselorPage(){return By.xpath("//h2[@class='text-white pt-1']");}
-    private By deleteButton(){return By.xpath("//button[@class='box-border min-h-[45px] bg-white border-2 border-primaryMain hover:bg-[#954E80] hover:text-white hover:border-[#954E80] active:bg-[#913175] py-3 px-3 rounded-[3px] text-primaryMain text-xs transition w-[90%]']");}
+    private By deleteButon(){return By.xpath("//button[@class='box-border min-h-[45px] bg-white border-2 border-primaryMain hover:bg-[#954E80] hover:text-white hover:border-[#954E80] active:bg-[#913175] py-3 px-3 rounded-[3px] text-primaryMain text-xs transition w-[90%]']");}
     private By sureButton(){return By.xpath("//button[@class='box-border min-h-[45px] bg-primaryMain hover:bg-primaryHover active:bg-primaryPressed py-3 px-3 rounded-[3px] text-white text-xs transition w-full']");}
     private By maybeLaterButton(){return By.xpath("//button[@class='box-border min-h-[45px] bg-white border-2 border-primaryMain hover:bg-[#954E80] hover:text-white hover:border-[#954E80] active:bg-[#913175] py-3 px-3 rounded-[3px] text-primaryMain text-xs transition w-full']");}
     private By successDelete(){return By.xpath("//div[@class='MuiAlert-message css-1xsto0d']");}
@@ -49,7 +49,7 @@ public class CounselorPage extends PageObject {
 
     //delete counselor
     @Step
-    public void clickDeleteButton(){$(deleteButton()).click();}
+    public void clickDeleteButon(){$(deleteButon()).click();}
     @Step
     public void clickSureButton(){$(sureButton()).click();}
     @Step

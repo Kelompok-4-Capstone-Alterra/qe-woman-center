@@ -1,4 +1,38 @@
 -------------------------------------------------------------------------------
 Test set: starter.CucumberTestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 42.741 s - in starter.CucumberTestSuite
+Tests run: 58, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 815.39 s <<< FAILURE! - in starter.CucumberTestSuite
+User.As Admin, I can filter user sort by newest  Time elapsed: 11.923 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'I click sort by button' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I click sort by button")
+public void i_click_sort_by_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("I choose newest")
+public void i_choose_newest() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("I find user sort by newest")
+public void i_find_user_sort_by_newest() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+User.As Admin, I can filter user sort by oldest  Time elapsed: 10.805 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'I click sort by button' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("I click sort by button")
+public void i_click_sort_by_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

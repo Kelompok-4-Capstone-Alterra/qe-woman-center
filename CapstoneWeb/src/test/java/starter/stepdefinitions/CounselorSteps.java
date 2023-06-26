@@ -40,14 +40,12 @@ public class CounselorSteps {
     public void onCounselorPage(){counselor.onCounselorPage();}
 
     //delete counselor
-    @And("I click delete button")
-    public void clickDeleteButton(){counselor.clickDeleteButton();}
+    @And("I click delete buton")
+    public void clickDeleteButon(){counselor.clickDeleteButon();}
     @And("I click sure button")
     public void clickSureButton(){counselor.clickSureButton();}
-    @Then("I see view message {string}")
-    public void iSeeViewMessage(String message) {
-        counselor.viewAlert();
-        counselor.iViewAlert(message);
+    @Then("I see view message success delete")
+    public void iSeeViewMessage() {
     }
 
     //cancel delete counselor

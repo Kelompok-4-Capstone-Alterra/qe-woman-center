@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Serenity Reports</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+    <script class="code" type="text/javascript">$(document).ready(function () {
+
+
+            $("#scenario-results").DataTable({
+                "order": [[0, "asc",], [3, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {type: 'time-elapsed-dhms', targets: 4}
+                ]
+            })
+            $("#manual-scenario-results").DataTable({
+                "order": [[0, "asc",], [1, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+            })
+
+        // Results table
+        $('#test-results-table').DataTable({
+            "order": [[0, "asc",], [3, "asc",]],
+            "pageLength": 100,
+            "lengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]]
+        });
+
+    })
+    ;
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs"><a href="index.html">Home</a>
+                > Tag 
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-06-2023 14:43:38</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="middlb">
+            <div class="table">
+
+                <h2>Test Results: All Tests</h2>
+                <table class='overview'>
+                    <tr>
+                        <td width="375px" valign="top">
+                            <div class="test-count-summary">
+                                <div>
+
+                                    16 tests
+
+                                     |
+                                        <a href="6767d709b2340d5a296f0ef2a61c8d5d177ce87ef3f44dde16f5b675fcb4620d.csv" title="Download CSV"> <i class="bi bi-cloud-arrow-down" title="Download CSV"></i></a>
+
+                                    <p class="report-info"><i class="bi bi-info-circle"></i> Note that results include
+                                        data-driven scenarios containing tests ,
+                                        which may also contain results other than tests .</p>
+
+
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#summary"><i class="bi bi-house-door"></i> Summary</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tests"><i class="bi bi-speedometer"></i> Test
+                                            Results</a>
+                                    </li>
+                                </ul>
+
+                                <div class="card border">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div id="summary" class="tab-pane fade in active">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>16</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>16</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td>Jun 26, 2023 14:31:29</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td>Jun 26, 2023 14:35:05</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td> 3m 35s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>10s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>15s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>12s</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Total
+                        Execution Time
+                    </td>
+                    <td> 3m 12s</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
+                                                        <!-- Severity bar chart -->
+                                                        <div class="chart-container" style="position: relative; width:30vw">
+                                                            <canvas id="severityChart" width="300" height="300"></canvas>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4">
+                                                        <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
+
+                                                        <!-- Duration bar chart -->
+                                                        <div class="chart-container" style="position: relative; width:30vw">
+                                                            <canvas id="durationChart" width="300" height="300"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <!-- High level coverage bar chart -->
+                                                            <div class="chart-container" style="position: relative; width:60vw">
+                                                                <h3><i class="bi bi-reception-3"></i> Functional Coverage Overview</h3>
+                                                                <h4>Features</h4>
+                                                                <canvas id="coverageChart"></canvas>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <h3>Tags</h3>
+
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <div>
+                                                                                <a href="fd7a020010d0db0a311e2b2b4234b4141e470e7868a83b2932f7a4b5077d2c8b.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> View Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="76c3cdfc891902147184efeb5dd989ef9e672d0c2e90c32d3a9a2a9053b3de25.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Search Transaction&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="d2a4962cf8494b6e4f53888d05ed57f8c1ae49f9660de19537d1d5321c05ca83.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Transaction Sort By&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="09194172b65bc57a0ccaed5f6af3ed5b75004500c17ab6393c9069464e1f49fa.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Delete Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="c0419c65f41e1fccc42ec38630d427aa58ffc9d83323a3c401514f5632beef1b.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Counseling&nbsp;&nbsp;&nbsp;16
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="4bfd3275bed5e3091f61ebcbcf6fb218e3c3e4cf393e4364b3f0480d6d4299e6.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Cancel Delete Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="cf452201f91c0170a203f3f06e95f7119ae023c29492773c1ad8d8fef0a7b5d3.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Update Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="a723e4b4ef91f907d56bea569e4ba97e7e64f25fcbd92b1b1f92fdf21aa19bef.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Send Link&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="f543486477192ef5212b62cfee7a0d6ed5402823e7f72a8beeb68cbb6678aa93.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Cancel Create Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="7c852006828c577b6391f85a5cc5ca574d17192976852e9dcead7888ca446374.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Update Status&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="b2ec90adc8d3c913199dec09ca9c8631823bda6729362504df4c8befdfb9f57c.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Cancel Update Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="9c13032eac17d01c86d0f5a92011cccd116dfb7a03d9460b0cd4ef69536a8773.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Create Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="68ee3b704ef2503c2508db22db5e0b913a82fd0e6ab16a5226f1b0bcd271824f.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Cancel Update Status&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="bf3c89a8e05ff45bc240afc5a5a369b7acafbe4a5d4fe1e704e873bb4998a650.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Schedule Sort By&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="2298f9a9991845c9c90556eb39a4662666b0d107b8f81ec4748cd3c07bb54a68.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Close View Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="a070f8004a942cb28edaa7e3af57a9ba42c743814a9620206817a42de51ebc32.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> View Counseling Transaction&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="393b6c4ccdd4cd1bd883f3b7621e06a049c5982b6e4b5c57d75e5abc5b8855bd.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Search Schedule&nbsp;&nbsp;&nbsp;1
+                                                                                    </span>
+                                                                                </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                            <h5 class="card-title">Context</h5>
+                                                                        <div>
+                                                                                <a href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Chrome&nbsp;&nbsp;&nbsp;16
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Windows&nbsp;&nbsp;&nbsp;16
+                                                                                    </span>
+                                                                                </a>
+                                                                                <a href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">
+                                                                                    <span class="badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                                                                        <i class="bi bi-tag"></i> Chrome, Windows&nbsp;&nbsp;&nbsp;16
+                                                                                    </span>
+                                                                                </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-sm-11">
+                                                            <h3>Functional Coverage Details</h3>
+
+
+                                                                    <h4>Features</h4>
+
+                                                                    <table class="table feature-coverage-table" id="Feature">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>Feature</th>
+                                                                            <th style="width:1em;">Test&nbsp;Cases</th>
+                                                                            <th style="width:1em;">Scenarios</th>
+                                                                            <th style="width:1em;">%&nbsp;Pass</th>
+                                                                            <th style="width:1em;">Result</th>
+                                                                            <th>Coverage</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                            <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html" > Counseling</a>
+                                                                                    </td>
+                                                                                    <td>16</td>
+                                                                                    <td>16</td>
+                                                                                    <td>100%</td>
+                                                                                    <td>
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="progress">
+                                                                                                <div class="progress-bar"
+                                                                                                     role="progressbar"
+                                                                                                     style="width: 100%; background-color: #b0cf73"
+                                                                                                     aria-valuenow="16"
+                                                                                                     title="100% success"
+                                                                                                     aria-valuemin="0"
+                                                                                                     aria-valuemax="100">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                            <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="fd7a020010d0db0a311e2b2b4234b4141e470e7868a83b2932f7a4b5077d2c8b.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> View Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="76c3cdfc891902147184efeb5dd989ef9e672d0c2e90c32d3a9a2a9053b3de25.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Search Transaction&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="d2a4962cf8494b6e4f53888d05ed57f8c1ae49f9660de19537d1d5321c05ca83.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Transaction Sort By&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="09194172b65bc57a0ccaed5f6af3ed5b75004500c17ab6393c9069464e1f49fa.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Delete Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="c0419c65f41e1fccc42ec38630d427aa58ffc9d83323a3c401514f5632beef1b.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Counseling&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                                    <a href="4bfd3275bed5e3091f61ebcbcf6fb218e3c3e4cf393e4364b3f0480d6d4299e6.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Delete Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="cf452201f91c0170a203f3f06e95f7119ae023c29492773c1ad8d8fef0a7b5d3.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Update Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="a723e4b4ef91f907d56bea569e4ba97e7e64f25fcbd92b1b1f92fdf21aa19bef.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Send Link&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="f543486477192ef5212b62cfee7a0d6ed5402823e7f72a8beeb68cbb6678aa93.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Create Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="7c852006828c577b6391f85a5cc5ca574d17192976852e9dcead7888ca446374.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Update Status&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="b2ec90adc8d3c913199dec09ca9c8631823bda6729362504df4c8befdfb9f57c.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Update Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="9c13032eac17d01c86d0f5a92011cccd116dfb7a03d9460b0cd4ef69536a8773.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Create Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="68ee3b704ef2503c2508db22db5e0b913a82fd0e6ab16a5226f1b0bcd271824f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Update Status&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="bf3c89a8e05ff45bc240afc5a5a369b7acafbe4a5d4fe1e704e873bb4998a650.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Schedule Sort By&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="2298f9a9991845c9c90556eb39a4662666b0d107b8f81ec4748cd3c07bb54a68.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Close View Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="a070f8004a942cb28edaa7e3af57a9ba42c743814a9620206817a42de51ebc32.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> View Counseling Transaction&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="393b6c4ccdd4cd1bd883f3b7621e06a049c5982b6e4b5c57d75e5abc5b8855bd.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Search Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                                    <a href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Windows&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                                    <a href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome, Windows&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                            </div>
+                                        </div>
+                                        <div id="tests" class="tab-pane fade in">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="bi bi-gear"></i> Automated Tests</h3>
+
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th>feature</th>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Started</th>
+                                                    <th>Total Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="c87b50eb9c227c2427b6a10ce1506e6e44e5b7f067a160300dbbcdd66746f22a.html">As Admin, I have be able to view counseling schedule</a></td>
+                                                            <td>4</td>
+                                                            <td>14:31:29</td>
+                                                            <td>11s 634ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="66f5d5e9822275f88093e553324a4f71d2b68b83bbb5911ef44d63c7f4234eb7.html">As Admin, I have be able to close view counseling schedule</a></td>
+                                                            <td>5</td>
+                                                            <td>14:31:42</td>
+                                                            <td>11s 789ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="723973a934b22d62684e55686638062c972125a0e90bed46bcfee33649b6c201.html">As Admin, I have be able to create counseling schedule</a></td>
+                                                            <td>8</td>
+                                                            <td>14:31:54</td>
+                                                            <td>14s 440ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="32a3a43cf878f95b27d997562aec7df7ceb65f5f82bf89292afd21fc17394818.html">As Admin, I have be able to cancel create counseling schedule</a></td>
+                                                            <td>5</td>
+                                                            <td>14:32:12</td>
+                                                            <td>15s 729ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="db40b5547810c2710016c31d76bc274171851e944cc2ff522f93b466005a2b42.html">As Admin, I have be able to update counseling schedule</a></td>
+                                                            <td>6</td>
+                                                            <td>14:32:30</td>
+                                                            <td>13s 393ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="070b8531fe2df659e45951636daa290b9a337953cf1eab13358a210815b06768.html">As Admin, I have be able to cancel update counseling schedule</a></td>
+                                                            <td>5</td>
+                                                            <td>14:32:45</td>
+                                                            <td>11s 133ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="e811be88484532cbbdd9427e7f694727386d2b29efe8f9cb9a2e7a05ff7f5ca1.html">As Admin, I have be able to delete counseling schedule</a></td>
+                                                            <td>5</td>
+                                                            <td>14:32:57</td>
+                                                            <td>12s 110ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="2d2393e21af99625857d2a55dcb56a3c6eb65cfbbf286a3a8aa37cddfcdc9a7e.html">As Admin, I have be able to cancel delete counseling schedule</a></td>
+                                                            <td>5</td>
+                                                            <td>14:33:10</td>
+                                                            <td>11s 520ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="b832abe924751a8ca30a6bc4e2e378b22052851f8bfdd98d1cfc513ca19cac79.html">As Admin, I have be able to sort counseling schedule</a></td>
+                                                            <td>4</td>
+                                                            <td>14:33:23</td>
+                                                            <td>10s 508ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="05986e5dacf5d94ea4b742dd67f8640338b905de0cd568519eb67ff0cb8d7351.html">As Admin, I have be able to search counseling schedule</a></td>
+                                                            <td>4</td>
+                                                            <td>14:33:34</td>
+                                                            <td>11s 600ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="37a06ccd1ee817561f409b63e4b25672219b828547ceefe8fdbc5e84ba62e4ef.html">As Admin, I have be able to view counseling transaction</a></td>
+                                                            <td>4</td>
+                                                            <td>14:33:47</td>
+                                                            <td>12s 092ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="3a7f85c24e8890fdab4a8d941285aeb906e06e5db62e3542feccf5ca6136536f.html">As Admin, I have be able to search counseling transaction</a></td>
+                                                            <td>5</td>
+                                                            <td>14:34:02</td>
+                                                            <td>10s 361ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="959f821776050c98ce03f7fc9fc38f99dd99f0f1dede781ebd4fa222359d4f0a.html">As Admin, I have be able to sort counseling transaction</a></td>
+                                                            <td>5</td>
+                                                            <td>14:34:13</td>
+                                                            <td>11s 577ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="63b1ead0287ac27ba286b579a1d4136f4dcf7ea240721f7e10ef9f2ec4d4299e.html">As Admin, I have be able to update status counseling transaction</a></td>
+                                                            <td>6</td>
+                                                            <td>14:34:26</td>
+                                                            <td>11s 999ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="948cb0383b4f401149775cb509ca081cd393654ed5d096db5dec5ebaa16f9a5c.html">As Admin, I have be able to cancel update status counseling transaction</a></td>
+                                                            <td>6</td>
+                                                            <td>14:34:41</td>
+                                                            <td>10s 599ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="scenario-result SUCCESS">
+                                                            <td>
+                                                                    <a href="38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html">counseling</a>
+                                                            </td>
+                                                            <td><a href="dfc077be1afa75f5bb0c61ef9811a3b8ffef74b3bf4d361f3479ad3f796786f7.html">As Admin, I have be able to send link</a></td>
+                                                            <td>7</td>
+                                                            <td>14:34:53</td>
+                                                            <td>12s 147ms</td>
+                                                            <td><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> <span style="display:none">SUCCESS</span>
+                                                            </td>
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h3><i class="bi bi-hand-index-thumb"></i> Manual Tests</h3>
+
+                                                No manual tests were recorded
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="fd7a020010d0db0a311e2b2b4234b4141e470e7868a83b2932f7a4b5077d2c8b.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> View Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="76c3cdfc891902147184efeb5dd989ef9e672d0c2e90c32d3a9a2a9053b3de25.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Search Transaction&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="d2a4962cf8494b6e4f53888d05ed57f8c1ae49f9660de19537d1d5321c05ca83.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Transaction Sort By&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="09194172b65bc57a0ccaed5f6af3ed5b75004500c17ab6393c9069464e1f49fa.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Delete Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="c0419c65f41e1fccc42ec38630d427aa58ffc9d83323a3c401514f5632beef1b.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Counseling&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                                    <a href="4bfd3275bed5e3091f61ebcbcf6fb218e3c3e4cf393e4364b3f0480d6d4299e6.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Delete Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="cf452201f91c0170a203f3f06e95f7119ae023c29492773c1ad8d8fef0a7b5d3.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Update Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="a723e4b4ef91f907d56bea569e4ba97e7e64f25fcbd92b1b1f92fdf21aa19bef.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Send Link&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="f543486477192ef5212b62cfee7a0d6ed5402823e7f72a8beeb68cbb6678aa93.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Create Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="7c852006828c577b6391f85a5cc5ca574d17192976852e9dcead7888ca446374.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Update Status&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="b2ec90adc8d3c913199dec09ca9c8631823bda6729362504df4c8befdfb9f57c.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Update Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="9c13032eac17d01c86d0f5a92011cccd116dfb7a03d9460b0cd4ef69536a8773.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Create Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="68ee3b704ef2503c2508db22db5e0b913a82fd0e6ab16a5226f1b0bcd271824f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Cancel Update Status&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="bf3c89a8e05ff45bc240afc5a5a369b7acafbe4a5d4fe1e704e873bb4998a650.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Schedule Sort By&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="2298f9a9991845c9c90556eb39a4662666b0d107b8f81ec4748cd3c07bb54a68.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Close View Counseling Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="a070f8004a942cb28edaa7e3af57a9ba42c743814a9620206817a42de51ebc32.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> View Counseling Transaction&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="393b6c4ccdd4cd1bd883f3b7621e06a049c5982b6e4b5c57d75e5abc5b8855bd.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Search Schedule&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                                    <a href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Windows&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                                    <a href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome, Windows&nbsp;&nbsp;&nbsp;16
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 3.6.21</span>
+        </div>
+    </div>
+</div>
+
+<!-- Chart data -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const outcomeChartCtx = document.getElementById('resultChart');
+
+        // Options define for display value on top of bars
+        const outcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "4a12c9f042ae44d4c0d405e4b469a44b03c9958d05c8714c4e5343783bd06a81.html" },
+            { title: 'Pending Test Cases', link: "8616f5ca420dbaac8ec1c06884d053163821d9fae50cec0c4fcf0e5677bd66af.html" },
+            { title: 'Ignored Test Cases', link: "6a51066e8e9c4038ec5723cadf8be5dcf8db937610098c57356953183ea5c9e8.html" },
+            { title: 'Skipped Test Cases', link: "b9b561a5b659d89feecb66a6d34595a9277cc0e93cc53ed98fc7c43c00b49e8d.html" },
+            { title: 'Aborted Test Cases',  link: "ed3cac292dbde97d3bfe129a510e1323e1c0514d781e8e3ac9df38bbdd99087e.html"},
+            { title: 'Failed Test Cases', link: "f7a7ac6c370707c1cecc201462681ae502813e5672e46d1ba28b0c2a8b6f0e28.html"  },
+            { title: 'Broken Test Cases', link: "53b7135d5418c40d511d421070a71822ab43680f1f7a7c2eca8802626422a089.html"    },
+            { title: 'Compromised Test Cases',  link: "b2e2a6d5e03c2a4d3ec0d1a519c00bbdddf6f1a92284ab6df739d920b2c838a9.html" },
+        ]
+        const outcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Test Results',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 16}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const outcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const outcomeChart = new Chart(outcomeChartCtx, {
+            type: 'doughnut',
+            data: outcomeData,
+            options: outcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function clickHandler(click) {
+            const points = outcomeChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(outcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        outcomeChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END PIE CHART -->
+
+    <!-- SUMMARY BAR CHART -->
+    <script>
+
+        // The Severity bar chart
+        const severityChartCtx = document.getElementById('severityChart');
+
+        // Options define for display value on top of bars
+
+        const severityDetailsReports = [
+            { title: 'Passing Scenarios', link: "4a12c9f042ae44d4c0d405e4b469a44b03c9958d05c8714c4e5343783bd06a81.html" },
+            { title: 'Pending Scenarios', link: "8616f5ca420dbaac8ec1c06884d053163821d9fae50cec0c4fcf0e5677bd66af.html" },
+            { title: 'Ignored Scenarios', link: "6a51066e8e9c4038ec5723cadf8be5dcf8db937610098c57356953183ea5c9e8.html" },
+            { title: 'Skipped Scenarios', link: "b9b561a5b659d89feecb66a6d34595a9277cc0e93cc53ed98fc7c43c00b49e8d.html" },
+            { title: 'Aborted Scenarios',  link: "ed3cac292dbde97d3bfe129a510e1323e1c0514d781e8e3ac9df38bbdd99087e.html"},
+            { title: 'Failed Scenarios', link: "f7a7ac6c370707c1cecc201462681ae502813e5672e46d1ba28b0c2a8b6f0e28.html"  },
+            { title: 'Broken Scenarios', link: "53b7135d5418c40d511d421070a71822ab43680f1f7a7c2eca8802626422a089.html"    },
+            { title: 'Compromised Scenarios',  link: "b2e2a6d5e03c2a4d3ec0d1a519c00bbdddf6f1a92284ab6df739d920b2c838a9.html" },
+        ]
+        const severityData = {
+            labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
+            datasets: [
+                {
+                    label: 'Automated',
+                    data: [16,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Manual',
+                    data: [0,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.25)','rgba(165, 199, 238, 0.25)','rgba(168, 168, 168, 0.25)','rgba(238, 224, 152, 0.375)','rgba(255, 153, 102, 0.25)','rgba(255, 22, 49, 0.25)','rgba(255, 97, 8, 0.25)','rgba(255, 104, 255, 0.25)','rgba(83, 50, 168, 0.25)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+
+            ]
+        }
+        const severityOptions = {
+            responsive: true,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value === 0) {
+                            return '';
+                        } else {
+                            return value;
+                        }
+                    },
+                }
+            }
+        }
+        const severityChart = new Chart(severityChartCtx, {
+            type: 'bar',
+            data: severityData,
+            options: severityOptions
+        });
+
+        function clickHandler(click) {
+            const points = severityChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(severityDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        severityChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END SUMMARY CHART -->
+
+    <!-- DURATION CHART -->
+    <script>
+
+        // Options define for display value on top of bars
+        const durationDetailsReports = [
+                {title: "Under 1 second", link: "2570bdda52d07f958a1355b9c42bfa2ea576e52024b2feaf86de71c8535b9774.html"},
+                {title: "1 to 10 seconds", link: "4b6bdffd694af7b0d6d6f4f357468e410aacc0753d1a89dbdb4dfb62875c609b.html"},
+                {title: "10 to 30 seconds", link: "5413204d31679bfa3061201adee77d1e1c5774e1e4b41b308e7437fb60a686d4.html"},
+                {title: "30 to 60 seconds", link: "d08fc2fff7c04974149c3e4a557dfe81524baaa3d3663e8e410dc32306dbe09c.html"},
+                {title: "1 to 2 minutes", link: "e63be9ed0ff3c6421fc21abc53ed4b448a53d4c6415b2e82f360d5f5b7a8d5c3.html"},
+                {title: "2 to 5 minutes", link: "47a226c1239ca18297dfee03506c3762cefb25ae32fb07950ec7459527b16bf5.html"},
+                {title: "5 to 10 minutes", link: "caee2f9f08e844988280feda0c2c7709196cf5a33cb43a02e0737b566a4f56b4.html"},
+                {title: "10 minutes or over", link: "982db4c3b4c98a41b9f69c95863eee38dd11eadb992b95ccfc91bfafd44310ba.html"},
+        ]
+        // The Severity bar chart
+        const durationChartCtx = document.getElementById('durationChart');
+
+        // Options define for display value on top of bars
+
+        const durationData = {
+            labels: ['Under 1 second','1 to 10 seconds','10 to 30 seconds','30 to 60 seconds','1 to 2 minutes','2 to 5 minutes','5 to 10 minutes','10 minutes or over'],
+            datasets: [{
+                label: 'Number of tests per duration',
+                fill: false,
+                data: ['0','0','16','0','0','0','0','0'],
+                backgroundColor: 'rgba(83, 146, 255,0.5)',
+                borderColor: 'rgba(83, 146, 255, 1)',
+            }]
+        }
+        const durationOptions = {
+            responsive: true,
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value > 0) {
+                            return value;
+                        } else {
+                            return '';
+                        }
+                    },
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: (data) => {
+                            return data.parsed.y + ' tests'
+                        }
+                    },
+                },
+            },
+        }
+
+        const durationChart = new Chart(durationChartCtx, {
+            type: 'bar',
+            data: durationData,
+            options: durationOptions
+        });
+
+        function durationClickHandler(click) {
+            const points = durationChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(durationDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+
+        durationChartCtx.onclick = durationClickHandler;
+    </script>
+    <!-- END DURATION CHART -->
+
+
+
+    <!-- COVERAGE BAR CHART -->
+    <script>
+
+        // The coverage bar chart
+        const coverageChartCtx = document.getElementById('coverageChart');
+
+        // Options define for display value on top of bars
+
+        const coverageReports = [
+            {
+                title: 'Counseling',
+                result: 'SUCCESS',
+                link: "38ca2f3f4ad7ad63cf1736fc5f80df14b024bb1dec74ad5df4eca7ca1cc5bb57.html"
+            },
+        ]
+        const coverageData = {
+            labels: [
+                'Counseling',
+            ],
+            datasets: [
+                {
+                    label: ['Passing Tests'],
+                    data: [16],
+                    backgroundColor: [ 'rgba(153,204,51,0.5)' ]
+                },
+                {
+                    label: ['Pending Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(165, 199, 238, 0.5)' ]
+                },
+                {
+                    label: ['Ignored Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(168, 168, 168, 0.5)' ]
+                },
+                {
+                    label: ['Skipped Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(238, 224, 152, 0.75)' ]
+                },
+                {
+                    label: ['Aborted Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 153, 102, 0.5)' ]
+                },
+                {
+                    label: ['Failed Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 22, 49, 0.5)' ]
+                },
+                {
+                    label: ['Errors'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 97, 8, 0.5)' ]
+                },
+                {
+                    label: ['Compromised Tests'],
+                    data: [0],
+                    backgroundColor: [ 'rgba(255, 104, 255, 0.5)' ]
+                },
+            ]
+        }
+        const coverageOptions = {
+            responsive: true,
+            indexAxis: 'y',
+            // barPercentage: ,
+            barThickness: 'flex',
+            maxBarThickness: 30,
+            minBarLength: 2,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold'
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                },
+            },
+        }
+
+        const coverageChart = new Chart(coverageChartCtx, {
+            type: 'bar',
+            data: coverageData,
+            options: coverageOptions
+        });
+
+        function coverageClickHandler(click) {
+            const points = coverageChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                if (coverageReports[firstPoint.index].link) {
+                    window.open(coverageReports[firstPoint.index].link, "_self")
+                }
+            }
+        }
+
+        coverageChartCtx.onclick = coverageClickHandler;
+    </script>
+    <!-- END COVERAGE CHART -->
+
+</body>
+</html>

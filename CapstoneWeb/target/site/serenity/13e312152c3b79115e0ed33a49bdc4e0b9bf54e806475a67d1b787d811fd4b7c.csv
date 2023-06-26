@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Forum Discussion","As Admin, I can see forum sort by newest","SUCCESS","2023-06-26T14:38:05.698+07:00[Asia/Bangkok]","0.0","12.98"
+"Forum Discussion","As Admin, I can see forum sort by oldest","SUCCESS","2023-06-26T14:38:22.686+07:00[Asia/Bangkok]","0.0","13.57"
+"Forum Discussion","As Admin, I can search forum","SUCCESS","2023-06-26T14:38:40.078+07:00[Asia/Bangkok]","0.0","11.59"
+"Forum Discussion","As Admin, I can view forum link","SUCCESS","2023-06-26T14:38:52.633+07:00[Asia/Bangkok]","0.0","11.83"
+"Forum Discussion","As Admin, I can delete forum discussion","SUCCESS","2023-06-26T14:39:08+07:00[Asia/Bangkok]","0.0","12.97"
+"Forum Discussion","As Admin, I can cancel delete forum discussion","SUCCESS","2023-06-26T14:39:24.541+07:00[Asia/Bangkok]","0.0","10.72"

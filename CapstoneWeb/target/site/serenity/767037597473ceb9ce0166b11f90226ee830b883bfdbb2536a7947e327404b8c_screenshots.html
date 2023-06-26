@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="16a383bbab8ac930c52bc693778b14883ced6ef669f187773daa068925a90048.html">Counselor</a></span>
+                > <span class="truncate-60"><a
+                    href="767037597473ceb9ce0166b11f90226ee830b883bfdbb2536a7947e327404b8c.html">As Admin, I fail to add new counselor with empty counseling price </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-06-2023 14:37</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Counselor </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                As an Admin<br />
+I want to add new counselor<br />
+So that I can manage counselor data
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="3b05d6511cecc7f62202fa9f3f37fe5d485faa2feb229165115d49cdffb43ae1.html">Fail Add Counselor With Empty Counseling Price
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">Windows
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">Chrome, Windows
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">As Admin, I fail to add new counselor with empty counseling price
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="82937fff51bf151fc02792fda6e4474c052085acca3b853edd1d4b5d2a7efc99.png" title=" Given I am on the dashboard page" width="1366"/>
+                <img src="82937fff51bf151fc02792fda6e4474c052085acca3b853edd1d4b5d2a7efc99.png" title=" Click into the dashboard" width="1366"/>
+                <img src="5ffc1f920b6c7d34e212e2bdbf2c9efb82d253139ca74b5d40d0cf0a02bae070.png" title=" Click into the dashboard (completed)" width="1366"/>
+                <img src="5ffc1f920b6c7d34e212e2bdbf2c9efb82d253139ca74b5d40d0cf0a02bae070.png" title=" Enter username: admin" width="1366"/>
+                <img src="fd5fc24ed66d7ff39f08b7cc53d59961f8374b224a79c8a5f8fc2624582d7800.png" title=" Enter username: admin (completed)" width="1366"/>
+                <img src="fd5fc24ed66d7ff39f08b7cc53d59961f8374b224a79c8a5f8fc2624582d7800.png" title=" Enter password: admin" width="1366"/>
+                <img src="bf11a3c1f4d47c69f0e309fca622142499b6f35fa25f1eb6ed6caf24cbf2cc3f.png" title=" Enter password: admin (completed)" width="1366"/>
+                <img src="bf11a3c1f4d47c69f0e309fca622142499b6f35fa25f1eb6ed6caf24cbf2cc3f.png" title=" Click sign in button" width="1366"/>
+                <img src="c8cb3259d56562476662343263dc0becad39b7b23eaa61885373359849a9fa61.png" title=" Click sign in button (completed)" width="1366"/>
+                <img src="c8cb3259d56562476662343263dc0becad39b7b23eaa61885373359849a9fa61.png" title=" Valid on the dashboard" width="1366"/>
+                <img src="35620a686381bbb041d350c2a6ac58f90ca68d280a53d38e58d1b02c1f5bc3cd.png" title=" Valid on the dashboard (completed)" width="1366"/>
+                <img src="35620a686381bbb041d350c2a6ac58f90ca68d280a53d38e58d1b02c1f5bc3cd.png" title=" Given I am on the dashboard page (completed)" width="1366"/>
+                <img src="286d34821f2481df061ce63061f8f303450dbb52a25fdddbf7b03d3f63dadb70.png" title=" When I click User and Counselor button" width="1366"/>
+                <img src="286d34821f2481df061ce63061f8f303450dbb52a25fdddbf7b03d3f63dadb70.png" title=" Click user and counselor button" width="1366"/>
+                <img src="286d34821f2481df061ce63061f8f303450dbb52a25fdddbf7b03d3f63dadb70.png" title=" When I click User and Counselor button (completed)" width="1366"/>
+                <img src="44d61dafaf50f0f804fae966c823b41c8d88688a196ec46cdd7e7d7559a7964e.png" title=" And I click add counselor button" width="1366"/>
+                <img src="44d61dafaf50f0f804fae966c823b41c8d88688a196ec46cdd7e7d7559a7964e.png" title=" Click add counselor button" width="1366"/>
+                <img src="44d61dafaf50f0f804fae966c823b41c8d88688a196ec46cdd7e7d7559a7964e.png" title=" And I click add counselor button (completed)" width="1366"/>
+                <img src="0ee6a741685ccba6da24522072fd4094c7c660586bfe1fe92633bbbd244b1ac5.png" title=" And I fill name" width="1366"/>
+                <img src="0ee6a741685ccba6da24522072fd4094c7c660586bfe1fe92633bbbd244b1ac5.png" title=" Fill name: Rara" width="1366"/>
+                <img src="0ee6a741685ccba6da24522072fd4094c7c660586bfe1fe92633bbbd244b1ac5.png" title=" And I fill name (completed)" width="1366"/>
+                <img src="58c3669f42ef83ed7a34d32ee604b97ebbfbddf2ef6055cd5e3a1c21d7f45de1.png" title=" And I fill email" width="1366"/>
+                <img src="58c3669f42ef83ed7a34d32ee604b97ebbfbddf2ef6055cd5e3a1c21d7f45de1.png" title=" Fill email: kaka@gmail.com" width="1366"/>
+                <img src="58c3669f42ef83ed7a34d32ee604b97ebbfbddf2ef6055cd5e3a1c21d7f45de1.png" title=" And I fill email (completed)" width="1366"/>
+                <img src="3d87e4344e1a4d48176fee0b0040177c50409f82c11b1bb5af4d477dde228e73.png" title=" And I fill username" width="1366"/>
+                <img src="3d87e4344e1a4d48176fee0b0040177c50409f82c11b1bb5af4d477dde228e73.png" title=" Fill username: kaka123" width="1366"/>
+                <img src="3d87e4344e1a4d48176fee0b0040177c50409f82c11b1bb5af4d477dde228e73.png" title=" And I fill username (completed)" width="1366"/>
+                <img src="aaedafc8eb1279556c293540127c1f54b7bfd226573bd78ca86dc11c1f630e43.png" title=" And I choose category" width="1366"/>
+                <img src="aaedafc8eb1279556c293540127c1f54b7bfd226573bd78ca86dc11c1f630e43.png" title=" Click choose category" width="1366"/>
+                <img src="aaedafc8eb1279556c293540127c1f54b7bfd226573bd78ca86dc11c1f630e43.png" title=" Click option" width="1366"/>
+                <img src="a2a9d85bd03bf4caa82a6bfae2508f05d0c38fa6a4e1536b0af3aabd704a7123.png" title=" Click option (completed)" width="1366"/>
+                <img src="a2a9d85bd03bf4caa82a6bfae2508f05d0c38fa6a4e1536b0af3aabd704a7123.png" title=" And I choose category (completed)" width="1366"/>
+                <img src="d731e225f8d9e8d938a59215a72f129cf278d414b887121747ecb7a1f0501d42.png" title=" And I fill description" width="1366"/>
+                <img src="d731e225f8d9e8d938a59215a72f129cf278d414b887121747ecb7a1f0501d42.png" title=" Fill description: Counselor Self Development" width="1366"/>
+                <img src="d731e225f8d9e8d938a59215a72f129cf278d414b887121747ecb7a1f0501d42.png" title=" And I fill description (completed)" width="1366"/>
+                <img src="5b65cd867b99b4498f31dfe628cf155a7bf569919ad844c61219c8853a408861.png" title=" And I fill empty counseling price" width="1366"/>
+                <img src="5b65cd867b99b4498f31dfe628cf155a7bf569919ad844c61219c8853a408861.png" title=" Fill counseling price: " width="1366"/>
+                <img src="5b65cd867b99b4498f31dfe628cf155a7bf569919ad844c61219c8853a408861.png" title=" And I fill empty counseling price (completed)" width="1366"/>
+                <img src="cd8ce6dec9c3977d44cc0c789d0a6caf214cb3ec9d1eaf6b7f0d9f81263f5d8e.png" title=" And I click Add new counselor button" width="1366"/>
+                <img src="cd8ce6dec9c3977d44cc0c789d0a6caf214cb3ec9d1eaf6b7f0d9f81263f5d8e.png" title=" Click add counselor" width="1366"/>
+                <img src="cd8ce6dec9c3977d44cc0c789d0a6caf214cb3ec9d1eaf6b7f0d9f81263f5d8e.png" title=" And I click Add new counselor button (completed)" width="1366"/>
+                <img src="cd8ce6dec9c3977d44cc0c789d0a6caf214cb3ec9d1eaf6b7f0d9f81263f5d8e.png" title=" Then I see warning message &quot;The price field is required&quot;" width="1366"/>
+                <img src="cd8ce6dec9c3977d44cc0c789d0a6caf214cb3ec9d1eaf6b7f0d9f81263f5d8e.png" title=" Validate wrning message empty name" width="1366"/>
+                <img src="1b2c0d693d3d453ae98159a5b5e6a4be9d4e4b3f29f437cc3877f0a8a6597adc.png" title=" I validate warning message empty name: The price field is required" width="1366"/>
+                <img src="1b2c0d693d3d453ae98159a5b5e6a4be9d4e4b3f29f437cc3877f0a8a6597adc.png" title=" Then I see warning message &quot;The price field is required&quot; (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.6.21</span>
+</div>
+</body>
+</html>

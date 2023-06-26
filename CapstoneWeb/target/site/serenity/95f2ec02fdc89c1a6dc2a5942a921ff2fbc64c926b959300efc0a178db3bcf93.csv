@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"counselor","As Admin, I have be able to delete counselor data","SUCCESS","2023-06-26T14:35:31.385+07:00[Asia/Bangkok]","0.0","9.89"
+"counselor","As Admin, I have be able to cancel add counselor","SUCCESS","2023-06-26T14:37:29.938+07:00[Asia/Bangkok]","0.0","8.99"
+"counselor","As Admin, I have be able to sort counselor","SUCCESS","2023-06-26T14:37:42.36+07:00[Asia/Bangkok]","0.0","8.72"
+"counselor","As Admin, I have be able to search","SUCCESS","2023-06-26T14:37:55.668+07:00[Asia/Bangkok]","0.0","8.42"

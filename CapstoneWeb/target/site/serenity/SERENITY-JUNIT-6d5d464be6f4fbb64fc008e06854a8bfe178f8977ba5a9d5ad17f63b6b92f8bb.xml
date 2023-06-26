@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="logout" skipped="0" tests="2" time="19.73" timestamp="2023-06-26 02:40:32"><testcase name="As a admin i success logout from website"/><testcase name="As a admin i can cancel logout"/></testsuite>

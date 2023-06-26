@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="c1e5b252976f7ce1c1cc4759a5a5e2a9fc17873a5a8c04b31a4603bfa3a74111.html">Forum Discussion</a></span>
+                > <span class="truncate-60"><a
+                    href="c4379bfb5f6aa1d2dd029eb1a6caadfeb04a430a0cf3bffd02bdf30c7ea83521.html">As Admin, I can delete forum discussion </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 26-06-2023 14:39</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Forum Discussion </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">Windows
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">Chrome, Windows
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="98e10e8f14b6a8b25c5e6e20c250a6f069374ba72657a61fee3d6627383b50e6.html">Delete Forum
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">As Admin, I can delete forum discussion
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="e29e947163ed3ba74f69da91bf61b13c5314df580568aa5c1698157f4d66c3ed.png" title=" Given I am on the landing page" width="1366"/>
+                <img src="5ffc1f920b6c7d34e212e2bdbf2c9efb82d253139ca74b5d40d0cf0a02bae070.png" title=" When I click get into the dashboard button" width="1366"/>
+                <img src="5ffc1f920b6c7d34e212e2bdbf2c9efb82d253139ca74b5d40d0cf0a02bae070.png" title=" Click into the dashboard" width="1366"/>
+                <img src="5ffc1f920b6c7d34e212e2bdbf2c9efb82d253139ca74b5d40d0cf0a02bae070.png" title=" When I click get into the dashboard button (completed)" width="1366"/>
+                <img src="fd5fc24ed66d7ff39f08b7cc53d59961f8374b224a79c8a5f8fc2624582d7800.png" title=" And I enter username" width="1366"/>
+                <img src="fd5fc24ed66d7ff39f08b7cc53d59961f8374b224a79c8a5f8fc2624582d7800.png" title=" Enter username: admin" width="1366"/>
+                <img src="fd5fc24ed66d7ff39f08b7cc53d59961f8374b224a79c8a5f8fc2624582d7800.png" title=" And I enter username (completed)" width="1366"/>
+                <img src="bf11a3c1f4d47c69f0e309fca622142499b6f35fa25f1eb6ed6caf24cbf2cc3f.png" title=" And I enter password" width="1366"/>
+                <img src="bf11a3c1f4d47c69f0e309fca622142499b6f35fa25f1eb6ed6caf24cbf2cc3f.png" title=" Enter password: admin" width="1366"/>
+                <img src="bf11a3c1f4d47c69f0e309fca622142499b6f35fa25f1eb6ed6caf24cbf2cc3f.png" title=" And I enter password (completed)" width="1366"/>
+                <img src="e967be7bd8558154b8f72ad9ed572c87148c39728643d0eccaacc9932c6edc08.png" title=" And I click sign in button" width="1366"/>
+                <img src="e967be7bd8558154b8f72ad9ed572c87148c39728643d0eccaacc9932c6edc08.png" title=" Click sign in button" width="1366"/>
+                <img src="e967be7bd8558154b8f72ad9ed572c87148c39728643d0eccaacc9932c6edc08.png" title=" And I click sign in button (completed)" width="1366"/>
+                <img src="41e676d336acef3c5ad64e1c950cd3a3b69efbf7bc51ef208c70d9cc0ae8ff4a.png" title=" Then I am on the dashboard" width="1366"/>
+                <img src="65e8562a156981bd952405e71f0e76004b11c539289fa6a91f3cd82b6454fbba.png" title=" Given I click article and forum button" width="1366"/>
+                <img src="e7060641ebc9825992c417cc7557f3a4cd79ce9dfd18b6ffdc734fdff9bba79b.png" title=" When I choose sub menu forum discussion" width="1366"/>
+                <img src="e7060641ebc9825992c417cc7557f3a4cd79ce9dfd18b6ffdc734fdff9bba79b.png" title=" Click dropdown forum" width="1366"/>
+                <img src="e7060641ebc9825992c417cc7557f3a4cd79ce9dfd18b6ffdc734fdff9bba79b.png" title=" Choose dropdown forum" width="1366"/>
+                <img src="50016c013fa949fea3080426e04ceda844ccc709c39f0c10ef7f68d9557fa79a.png" title=" Choose dropdown forum (completed)" width="1366"/>
+                <img src="50016c013fa949fea3080426e04ceda844ccc709c39f0c10ef7f68d9557fa79a.png" title=" When I choose sub menu forum discussion (completed)" width="1366"/>
+                <img src="e1d34d45d431c5f8df025fb429e581539e341b6e56632e9e2ef9bf02099d5c07.png" title=" And I click delete button forum" width="1366"/>
+                <img src="e1d34d45d431c5f8df025fb429e581539e341b6e56632e9e2ef9bf02099d5c07.png" title=" Click delete forum button" width="1366"/>
+                <img src="e0679f19ef39d46f3174f28075aaba58f00099ecb733bc66099fb69b356ca09d.png" title=" Click delete forum button (completed)" width="1366"/>
+                <img src="e0679f19ef39d46f3174f28075aaba58f00099ecb733bc66099fb69b356ca09d.png" title=" And I click delete button forum (completed)" width="1366"/>
+                <img src="2d34fffe9b7835de0c7caab57a5967c6d444035f63dcba3f67c88278f5ad9c73.png" title=" And I click pop up sure for confirm delete forum" width="1366"/>
+                <img src="2d34fffe9b7835de0c7caab57a5967c6d444035f63dcba3f67c88278f5ad9c73.png" title=" Pop up sure delete forum" width="1366"/>
+                <img src="02da86dcefa6a718897735077983c31c458c2c9692b5d8c24e535bc58fcaa543.png" title=" Pop up sure delete forum (completed)" width="1366"/>
+                <img src="02da86dcefa6a718897735077983c31c458c2c9692b5d8c24e535bc58fcaa543.png" title=" And I click pop up sure for confirm delete forum (completed)" width="1366"/>
+                <img src="7c05197acf3da2cb66a41a6f0f41587903459a3d2972565da2f862f84e7b0df3.png" title=" Then I success delete forum" width="1366"/>
+                <img src="7c05197acf3da2cb66a41a6f0f41587903459a3d2972565da2f862f84e7b0df3.png" title=" Validate forum page" width="1366"/>
+                <img src="7c05197acf3da2cb66a41a6f0f41587903459a3d2972565da2f862f84e7b0df3.png" title=" Then I success delete forum (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.6.21</span>
+</div>
+</body>
+</html>
