@@ -24,4 +24,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Test Scenario and Test Case
-        run: mvn clean verify -f qe_women_center/CapstoneAPI/pom.xml
+        run: mvn clean verify -f CapstoneAPI/pom.xml
