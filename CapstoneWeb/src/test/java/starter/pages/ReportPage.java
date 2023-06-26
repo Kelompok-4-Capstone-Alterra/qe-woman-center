@@ -8,6 +8,18 @@ public class ReportPage extends PageObject {
     private By reports(){
         return By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/h1");
     }
+    private By calenderStartReport(){
+        return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/form/div/div[1]/div/div[1]/button");
+    }
+    private By calenderEndReport(){
+        return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/form/div/div[2]/div/div/button");
+    }
+    private By startDate(){
+        return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/form/div/div[1]/div/div[2]/div/div/div/div/table/tbody/tr[4]/td[3]/button");
+    }
+    private By endDate(){
+        return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/form/div/div[2]/div/div[2]/div/div/div/div/table/tbody/tr[4]/td[5]/button");
+    }
     private By dropdownReportSortBy(){
         return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/div/div[2]/div/div");
     }
@@ -24,6 +36,23 @@ public class ReportPage extends PageObject {
         return By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/a");
     }
 
+
+    @Step
+    public void clickCalenderStart(){
+        $(calenderStartReport()).click();
+    }
+    @Step
+    public void clickCalenderEnd(){
+        $(calenderEndReport()).click();
+    }
+    @Step
+    public void chooseStartDate(){
+        $(startDate()).click();
+    }
+    @Step
+    public void chooseEndDate(){
+        $(endDate()).click();
+    }
     @Step
     public void clickDropdownReportSortBy(){
         $(dropdownReportSortBy()).click();

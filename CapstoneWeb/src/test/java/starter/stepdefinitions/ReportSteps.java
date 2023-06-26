@@ -12,9 +12,24 @@ public class ReportSteps {
     @Steps
     ReportPage reportPage;
 
-    // report sort by newest
+    // report based date
     @Given("I click report button")
     public void clickCareerButton(){reportPage.openUrl("https://react-women-center.netlify.app/report");}
+
+    @When("I choose start date")
+    public void chooseStartDate(){
+        reportPage.clickCalenderStart();
+        reportPage.chooseStartDate();
+    }
+    @And("I choose end date")
+    public void chooseEndDate(){
+        reportPage.clickCalenderEnd();
+        reportPage.chooseEndDate();
+    }
+    @Then("I can see report based date")
+    public void seeReportBasedDate(){reportPage.validateAdminReport();}
+
+    // report sort by newest
     @When("I choose sort by report")
     public void chooseSortByReport(){reportPage.clickDropdownReportSortBy();}
     @And("I click sort by newest report")

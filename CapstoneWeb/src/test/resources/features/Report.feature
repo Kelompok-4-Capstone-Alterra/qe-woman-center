@@ -8,6 +8,13 @@ Feature: Report
     And I click sign in button
     Then I am on the dashboard
 
+  @ReportBasedDate
+  Scenario: As Admin, I can see report based date
+    Given I click report button
+    When I choose start date
+    And I choose end date
+    Then I can see report based date
+
   @ReportSortByNewest
   Scenario: As Admin, I can see report sort by newest
     Given I click report button
