@@ -16,7 +16,7 @@ jobs:
           java-version: "11"
           distribution: "adopt"
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package -f MiniProject/Web_Automation/pom.xml
+        run: mvn --batch-mode --update-snapshots package -f CapstoneAPI/pom.xml
   test:
     name: Test Web Automation
     needs: build
