@@ -2,7 +2,7 @@ name: API CI/CD
 
 on:
   push:
-    branches: [ci-cd]
+    branches: [main]
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package -f CapstoneAPI/pom.xml
   test:
-    name: Test Web Automation
+    name: Test API Automation
     needs: build
     runs-on: ubuntu-latest
     steps:
