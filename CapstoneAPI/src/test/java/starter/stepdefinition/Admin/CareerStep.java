@@ -95,7 +95,7 @@ public class CareerStep {
 
     @Then("I receive career delete status code {string}")
     public void iReceiveCareerDeleteStatusCode(String code) {
-//        int statusCode = Integer.parseInt(code);
+        int statusCode = Integer.parseInt(code);
 //        career.receiveResponseCode(statusCode);
     }
 
