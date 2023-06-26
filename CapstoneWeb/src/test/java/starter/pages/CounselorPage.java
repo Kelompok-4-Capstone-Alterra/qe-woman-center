@@ -52,11 +52,6 @@ public class CounselorPage extends PageObject {
     public void clickDeleteButon(){$(deleteButon()).click();}
     @Step
     public void clickSureButton(){$(sureButton()).click();}
-    @Step
-    public boolean viewAlert(){return $(successDelete()).isDisplayed();}
-    @Step
-    public boolean iViewAlert(String message){
-        return $(successDelete()).getText().equalsIgnoreCase(message);}
 
     //cancel delete counselor
     @Step

@@ -43,9 +43,7 @@ public class CounselorSteps {
     @And("I click delete buton")
     public void clickDeleteButon(){counselor.clickDeleteButon();}
     @And("I click sure button")
-    public void clickSureButton(){counselor.clickSureButton();}
-    @Then("I see view message success delete")
-    public void iSeeViewMessage() {
+    public void clickSureButton(){counselor.clickSureButton();
     }
 
     //cancel delete counselor

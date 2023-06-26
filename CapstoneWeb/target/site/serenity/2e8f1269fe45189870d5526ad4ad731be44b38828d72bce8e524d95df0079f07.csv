@@ -1,7 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"User","As Admin, I can see user data","SUCCESS","2023-06-26T14:41:50.423+07:00[Asia/Bangkok]","0.0","10.31"
-"User","As Admin, I cancel delete user","SUCCESS","2023-06-26T14:42:04.018+07:00[Asia/Bangkok]","0.0","9.66"
-"User","As Admin, I can delete user","SUCCESS","2023-06-26T14:42:17.182+07:00[Asia/Bangkok]","0.0","9.49"
-"User","As Admin, I can search user","SUCCESS","2023-06-26T14:42:30.109+07:00[Asia/Bangkok]","0.0","9.87"
-"User","As Admin, I can filter user sort by newest","PENDING","2023-06-26T14:42:43.755+07:00[Asia/Bangkok]","0.0","8.24"
-"User","As Admin, I can filter user sort by oldest","PENDING","2023-06-26T14:42:55.602+07:00[Asia/Bangkok]","0.0","9.14"

@@ -123,9 +123,9 @@ public class CounselingSteps {
 
     //send link
     @And("I click send link")
-    public void clickSendLink(){}
+    public void clickSendLink(){counselingPage.clickSendLink();}
     @And("I insert counseling link")
-    public void insertCounselingLink(){}
+    public void insertCounselingLink(){counselingPage.insertCounselingLink("https://t.me/+J2TWk74XVccxN2Nl");}
     @And("I click button send link")
-    public void clickButtonSendLink(){}
+    public void clickButtonSendLink(){counselingPage.clickSendLinkButton();}
 }

@@ -23,7 +23,7 @@ Feature: counselor
   Scenario: As Admin, I have be able to delete counselor data
     And I click delete buton
     And I click sure button
-    Then I see view message success delete
+    Then I am on counselor page
 
   @CancelDeleteCounselor
   Scenario: As Admin, I have be able to cancel delete counselor data

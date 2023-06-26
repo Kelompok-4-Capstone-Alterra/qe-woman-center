@@ -69,7 +69,7 @@ public class CounselingPage extends PageObject {
     @Step
     public void clickAddScheduleButton(){$(addScheduleButton()).click();}
     @Step
-    public void seePopUp(){}
+    public void seePopUp(){$(popUp()).isDisplayed();}
 
     //cancel add schedule
     @Step
@@ -123,5 +123,7 @@ public class CounselingPage extends PageObject {
     @Step
     public void clickSendLink(){$(sendLink()).click();}
     @Step
-    public void insertCounselingLink(){$(linkField());}
+    public void insertCounselingLink(String message){$(linkField()).type(message);}
+    @Step
+    public void clickSendLinkButton(){$(sendLinkButton()).click();}
 }

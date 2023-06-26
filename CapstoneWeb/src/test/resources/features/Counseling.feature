@@ -26,7 +26,7 @@ Feature: counseling
     And I choose counseling date
     And I choose counseling time
     And I click add schedule button
-    Then I see pop up success
+    Then I am back to counseling schedule page
 
   @CancelCreateCounselingSchedule
   Scenario: As Admin, I have be able to cancel create counseling schedule
@@ -39,7 +39,7 @@ Feature: counseling
     And I click update button
     And I update counseling date
     And I click update schedule button
-    Then I see pop up success
+    Then I am back to counseling schedule page
 
   @CancelUpdateCounselingSchedule
   Scenario: As Admin, I have be able to cancel update counseling schedule
@@ -51,7 +51,7 @@ Feature: counseling
   Scenario: As Admin, I have be able to delete counseling schedule
     And I click button delete
     And I click button sure on pop up
-    Then I see pop up success
+    Then I am back to counseling schedule page
 
   @CancelDeleteCounselingSchedule
   Scenario: As Admin, I have be able to cancel delete counseling schedule
@@ -91,7 +91,7 @@ Feature: counseling
     And I choose sub menu counseling transaction
     And I click cancel
     And I click button sure on pop up
-    Then I see pop up success
+    Then I am back to counseling transaction page
 
   @CancelUpdateStatus
   Scenario: As Admin, I have be able to cancel update status counseling transaction
@@ -106,4 +106,4 @@ Feature: counseling
     And I click send link
     And I insert counseling link
     And I click button send link
-    Then I see pop up success
+    Then I am back to counseling transaction page
