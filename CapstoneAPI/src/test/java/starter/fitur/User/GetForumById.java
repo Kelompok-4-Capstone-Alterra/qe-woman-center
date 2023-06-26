@@ -6,10 +6,10 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class GetForumById {
     protected static String url = "https://13.210.163.192:8080";
-    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwYWU5NTYyLTBkMjItMTFlZS04OTIzLTAyNDJhYzFlMDAwMyIsImVtYWlsIjoiaWhpbG1pZGVyaWFuQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaXZhbmRldiIsImF1dGhfYnkiOiJhdXRoIiwiZXhwIjoxNjg3OTIwODI0fQ.cAebekCWSJbjwTnGrl_cVMRpQwoRB8epKjISstei-L8";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE1ZmI3OGIwLTExMGMtMTFlZS1hMzkzLTAyNDJjMGE4NDAwMyIsImVtYWlsIjoia2VzYXR1dXNlckBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Imthbmd0ZXN0aW5nIiwiYXV0aF9ieSI6ImF1dGgiLCJleHAiOjE2ODgwNzg1MTJ9.4BV6K1CKom-pSOOmYP8EvvNn8Kdlvne25QTMu8hw7BM";
 
     public String setGetForumByIdWithValidEndpoint(){
-        return url + "/users/forums/57745faf-350e-4bb6-b5c4-9920de23f3b0";
+        return url + "/users/forums/3162f68e-f146-4ffc-b936-f4bbc4081428";
     }
     public String setGetForumByIdWithInValidEndpoint(){
         return url + "/user/forums/57745faf-350e-4bb6-b5c4-9920de23f3b0";
