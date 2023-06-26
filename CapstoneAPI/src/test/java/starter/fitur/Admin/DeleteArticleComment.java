@@ -29,6 +29,7 @@ public class DeleteArticleComment {
     }
     public void receivedDeleteArticleCommentResponseCode() {
 //        restAssuredThat(response -> response.statusCode(200));
+//        Diganti response code karena artikel telah berhasil dihapus
         restAssuredThat(response -> response.statusCode(404));
     }
 
