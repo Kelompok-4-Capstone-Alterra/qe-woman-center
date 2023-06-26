@@ -9,6 +9,7 @@ import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 
 public class Counselor {
     protected String url = "https://13.210.163.192:8080";
+    protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc5MjE4MTh9.yjnZ6ThqVUjF-pJ8bmpPRIo6Zw99WN9lkmd5FNvk2Wg";
 
     @Step("I set GET all counselor with valid endpoint")
     public String setGetAllCounselorWithValidEndpoint() {
@@ -57,7 +58,7 @@ public class Counselor {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2MzU2NTZ9.7h3WRwFoMJIWfiYLk62uXaMoRhRJNVcDZ5SpY4tu6U0")
+                .auth().oauth2(token)
                 .get(setGetAllCounselorWithValidEndpoint());
 
     }
@@ -72,7 +73,7 @@ public class Counselor {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2MzU2NTZ9.7h3WRwFoMJIWfiYLk62uXaMoRhRJNVcDZ5SpY4tu6U0")
+                .auth().oauth2(token)
                 .get(setGetAllCounselorByPage());
 
     }
@@ -87,7 +88,7 @@ public class Counselor {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2MzU2NTZ9.7h3WRwFoMJIWfiYLk62uXaMoRhRJNVcDZ5SpY4tu6U0")
+                .auth().oauth2(token)
                 .get(setGetAllCounselorByLimit());
 
     }
@@ -102,7 +103,7 @@ public class Counselor {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2MzU2NTZ9.7h3WRwFoMJIWfiYLk62uXaMoRhRJNVcDZ5SpY4tu6U0")
+                .auth().oauth2(token)
                 .get(setGetAllCounselorBySearch());
 
     }
@@ -117,7 +118,7 @@ public class Counselor {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2MzU2NTZ9.7h3WRwFoMJIWfiYLk62uXaMoRhRJNVcDZ5SpY4tu6U0")
+                .auth().oauth2(token)
                 .get(setGetAllCounselorSortBy());
 
     }
@@ -132,7 +133,7 @@ public class Counselor {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2MzU2NTZ9.7h3WRwFoMJIWfiYLk62uXaMoRhRJNVcDZ5SpY4tu6U0")
+                .auth().oauth2(token)
                 .get(setGetAllCounselorHasSchedule());
 
     }
@@ -148,7 +149,7 @@ public class Counselor {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc2MzU2NTZ9.7h3WRwFoMJIWfiYLk62uXaMoRhRJNVcDZ5SpY4tu6U0")
+                .auth().oauth2(token)
                 .get(setGetAllCounselorWithInvalidEndpoint());
 
     }
@@ -176,11 +177,10 @@ public class Counselor {
 
     @Step("I send HTTP GET to the request with valid endpoint")
     public void sendIDReqValidEndpoint() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODczMzA5OTh9.WkAlfX6Vccaw_i6Fp4RIjwdnRH5-0a8P8HIgX5O4WkI";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetValidEndpointByID())
-                .pathParams("id", "7993b562-0534-11ee-8266-0242c0a8b003")
+                .pathParams("id", "1a99970b-134e-11ee-aaf1-0242ac180003")
                 .when()
                 .get("/{id}");
 
@@ -194,9 +194,8 @@ public class Counselor {
 
     @Step("I send HTTP GET counselor to request with invalid ID")
     public void sendReqInvalidID() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODczMzA5OTh9.WkAlfX6Vccaw_i6Fp4RIjwdnRH5-0a8P8HIgX5O4WkI";
-        SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+         SerenityRest
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetInvalidID())
                 .pathParams("id", "8993b562-0534-11ee-8266-0242c0a8b003")
                 .when()
@@ -212,9 +211,8 @@ public class Counselor {
 
     @Step("I send HTTP GET to request with valid endpoint with empty ID")
     public void sendReqEmptyID() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODczMzA5OTh9.WkAlfX6Vccaw_i6Fp4RIjwdnRH5-0a8P8HIgX5O4WkI";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetEmptyID())
                 .pathParams("id", "")
                 .when()
