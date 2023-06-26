@@ -172,7 +172,6 @@ public class Counselor {
     @Step("I set GET valid endpoint with empty ID")
     public String setGetEmptyID() {
         return url + "/admin/counselors";
-
     }
 
     @Step("I send HTTP GET to the request with valid endpoint")
@@ -214,14 +213,14 @@ public class Counselor {
         SerenityRest
                 .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetEmptyID())
-                .pathParams("id", "")
+                .pathParams("id", "  ")
                 .when()
                 .get("/{id}");
 
     }
-    @Step("I receive a HTTP response code 404")
+    @Step("I receive a HTTP response code 400 Bad Request")
     public void HttpResponse400() {
-        restAssuredThat(response -> response.statusCode(404));
+        restAssuredThat(response -> response.statusCode(400));
 
     }
 }

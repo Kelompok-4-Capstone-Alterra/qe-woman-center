@@ -8,7 +8,7 @@ public class Forum {
     protected static String url = "https://13.210.163.192:8080";
     protected static String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc5MjE4MTh9.yjnZ6ThqVUjF-pJ8bmpPRIo6Zw99WN9lkmd5FNvk2Wg";
     protected static String invalidToken = "eyJh";
-    protected static String id = "57046646-4caf-4dc2-a457-2b7e66f72955";
+    protected static String id = "0541830b-1b5d-4d0d-99f8-b2a40d8f6e7f";
     protected static String invId = "10ebec19-b89e-4b74-aa29-c1d7c0997cfu";
     protected static String delId = "4daeeadc-4fa4-4f18-966f-fbc22f36cf2d";
     protected static String delIdInv = "10ebec19-b89e-4b74-aa29-c1d7c0997cfu";

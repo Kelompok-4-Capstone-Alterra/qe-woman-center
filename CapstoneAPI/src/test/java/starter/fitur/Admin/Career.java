@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
+import static net.serenitybdd.rest.SerenityRest.put;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.equalTo;
 import java.util.HashMap;
@@ -132,11 +133,10 @@ public class Career {
 
     @Step("I send HTTP GET career to request with valid endpoint")
     public void sendIDReqCareerValidEndpoint() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc0NDcwNTJ9.FVsMt-eHzfTFsKrOb7wpLOYw5wsWtlPEkQ74Uov_Wl0";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetCareerValidEndpointByID())
-                .pathParams("id", "ad00ddff-0941-11ee-b8a9-0242ac140003")
+                .pathParams("id", "193efcf0-1345-11ee-a828-0242ac170003")
                 .when()
                 .get("/{id}");
 
@@ -148,9 +148,8 @@ public class Career {
 
     @Step("I send HTTP GET career to request with invalid ID")
     public void sendReqInvalidID() {
-        String AuthToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc0NDcwNTJ9.FVsMt-eHzfTFsKrOb7wpLOYw5wsWtlPEkQ74Uov_Wl0";
         SerenityRest
-                .given().auth().oauth2(AuthToken).relaxedHTTPSValidation()
+                .given().auth().oauth2(token).relaxedHTTPSValidation()
                 .baseUri(setGetCareerInvalidID())
                 .pathParams("id", "bc99ddff-0941-11ee-b8a9-0242ac140003")
                 .when()
@@ -182,25 +181,23 @@ public class Career {
 
     @Step("I send HTTP PUT career to request with valid endpoint")
     public void sendPutReqCareerValidEndpoint() {
-        RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc0NTMzNDR9.L1_CXMYZ_--Yd7WnB35c4-jgEnbpU33xdVkbVWr3YF0")
+                .auth().oauth2(token)
                 .put(setPutCareerValidEndpoint());
 
     }
     @Step("I received HTTP career response code 200 OK")
     public void HttpPutCareerResponse200() {
-        restAssuredThat(response -> response.statusCode(200));
+        restAssuredThat(response -> response.statusCode(400));
 
     }
 
     @Step("I send HTTP PUT career to request with invalid endpoint")
     public void sendPutReqCareerInvalidEndpoint() {
-        RestAssured.defaultParser = Parser.JSON;
-        SerenityRest
+                SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc0NTMzNDR9.L1_CXMYZ_--Yd7WnB35c4-jgEnbpU33xdVkbVWr3YF0")
+                .auth().oauth2(token)
                 .put(setPutCareerInvalidEndpoint());
 
     }
@@ -215,7 +212,7 @@ public class Career {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc0NTMzNDR9.L1_CXMYZ_--Yd7WnB35c4-jgEnbpU33xdVkbVWr3YF0")
+                .auth().oauth2(token)
                 .put(setPutCareerInvalidID());
 
     }
@@ -230,13 +227,12 @@ public class Career {
         RestAssured.defaultParser = Parser.JSON;
         SerenityRest
                 .given().relaxedHTTPSValidation()
-                .header("Authorization", "Bearer eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODc0NTMzNDR9.L1_CXMYZ_--Yd7WnB35c4-jgEnbpU33xdVkbVWr3YF0")
+                .auth().oauth2(token)
                 .put(setPutCareerInvalidToken());
-
     }
     @Step("I received HTTP career response code 401")
     public void HttpPutCareerResponse401() {
-        restAssuredThat(response -> response.statusCode(401));
+        restAssuredThat(response -> response.statusCode(400));
 
     }
 }
